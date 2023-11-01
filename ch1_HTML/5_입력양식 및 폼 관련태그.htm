@@ -203,6 +203,49 @@
    </form>
 
    <hr>
+   
+   <h2>추가적인 input 태그의 타입들</h2>
+
+   <form enctype="multipart/form-data">
+
+    <h3>type="color"</h3>
+    <p>
+        - 색상을 선택할 수 있는 input<br>
+          색상선택 : <input type="color" name="color">
+    </p>
+
+    <h3>type="file"</h3>
+    <p>
+        - 첨부하고자 하는 파일을 선택할 수 있는 input<br>
+        파일첨부 : <input type="file" name="uploadFile">
+    </p>
+
+    <h3>type="hidden"</h3>
+    <p>
+        - 특정값을 사용자에게 입력받지 않고 화면에 노출시키지도 않고
+          넘기고자 하는 값이 있을경우 사용할 수 있는 input<br>
+          안보임 : <input type="hidden" name="hidden" value="안보임 ㅎ"> 
+    </p>
+
+    <br><br>
+    <h3>type="submit/reset/button"</h3>
+    <!--submit => 제출하기 누르면 서버로 보내고 새로고침
+        rest   => 선택했던 값들을 초기화해준다.
+        button => button은 value값을 지정해줘야함, default값 없음. (아이디 중복, 팝업창 주로 사용)-->
+    <input type="reset" value="장바구니 취소">
+    <input type="button" value="일반 버튼">
+    <input type="submit">
+
+    <br> <br>
+    <h3>button type="submit/reset/button"</h3>
+    <!--button의 기본값은 submit이다.
+        button tpye "button"은 일반 버튼이다.
+        일반 버튼이란? 버튼을 클릭해도 새로고침없고 서버로 안보내짐. -->
+    <button type="submit">제출</button>
+    <button type="reset">초기화</button>
+    <button type="button">일반버튼</button>
+
+   </form>
 
    <h2>select 태그와 option 태그</h2>
    <p>
@@ -224,8 +267,136 @@
             <option selected value="us">미국</option>
         </select>
 
+        <br><br>
+        <!--<select>는 드롭다운 목록을 만들 때 사용합니다.-->
+
+        <h4>HTML5에서 새롭게 추가된 기능 datalist</h4>
+
+        좋아하는 색상 : <input type="text" name="color" list="colorList">
+        <datalist id="colorList">
+            <option value="검정색" >검정색</option>
+            <option value="하늘색">하늘색</option>
+            <option value="흰색">흰색</option>
+            <option value="핑크색">핑크색</option>
+        </datalist>
+
         <input type="submit">
 
    </from>
+   <hr><br> <br>
+
+
+  
+
+    <fieldset>
+        <legend><h3>회원가입 동의서</h3></legend>
+
+        <label>이용약관 동의(필수)</label> <br>
+        <textarea name="content" cols="30" rows="10" style="resize: none;">
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는  
+            </textarea>
+        <br>
+        <input type="radio" name="동의" id="radioY" value="T">
+        <label for="radioY">동의합니다.</label>
+        <input type="radio" name="비동의" id="radioZ" value="F">
+        <label for="radioZ">동의하지 않습니다.</label>
+
+        <br><br><br>
+        <label>개인정보 수집 및 이용 동의(필수)</label> <br>
+        <textarea name="content" cols="30" rows="10" style="resize: none;">
+개인정보 보호법에 여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 
+여러분을 환영합니다. 나는 너와 나릉 사랑을하고 만나고 서비스를 이용해주셔서 감사하고 너와 나는 </textarea>
+        <br>
+        <input type="radio" name="동의" id="radioY" value="T">
+        <label for="radioY">동의합니다.</label>
+        <input type="radio" name="비동의" id="radioZ" value="F">
+        <label for="radioZ">동의하지 않습니다.</label>
+        <br> <br>
+        <input type="checkbox" name="hobby" id="hobby1" ><label >모두 동의합니다.</label>
+        <br>
+        <br>
+        <button>취소</button> <button>확인</button>
+    </fieldset>
+
+
+    <fieldset>
+        <legend><h4>회원가입 양식</h4></legend>
+      
+       
+        <label>* 아이디  </label>
+        <br>
+    <input type="text" name="userId" placeholder="아이디를 입력하세요." maxlength="12"
+    required> <button>아이디 중복 확인</button>
+        <br>
+        <br>
+        <label>*비밀번호 </label>
+        <br>
+        <input type="password" name="userPassword" placeholder="영문, 숫자, 튿수문자 8~15" maxlength="13">
+        <br>
+        <br>
+        <label>* 비밀번호 재확인 </label>
+        <br>
+        <input type="password" name="userPassword_again" placeholder="영어, 숫자, 특수문자 8 ~ 15" maxlength="13">
+        <br>
+        <br>
+        <label>* 이름</label>
+        <br>
+        <input type="text" name="userName" maxlength="7">
+        <br>
+        <br>
+        <label>* 주민등록번호</label>
+        <br>
+        <input type="text" name="bh"> - <input type="text" name="bh">
+        <br>
+        <br>
+        성별 : 
+        <input type="radio" name="gender" id="radioX" checked>
+        <label for="radioX">선택안함</label>
+        <input type="radio" name="gender" id="radioY" value="M">
+        <label for="radioY">남자</label>
+        <input type="radio" name="gender" id="radioZ" value="F">
+         <label for="radioZ">여자</label>
+         <br>
+         <br>
+         <label>* 생년월일</label>
+         <br>
+         <input type="date" name="dateIn"> <br>
+         <br>
+         <label>주소</label>
+         <br>
+         <input type="text" name="address"><br>
+         <br>
+         <label>우편변호</label>
+         <br>
+        
+         <input type="text" name="add">
+         <button>우편번호 찾기</button> <input type="checkbox" name="address" id="address" ><label >우편 수신 동의</label>
+         <br>
+         <br>
+         <label>이메일</label> <br>
+         <input type="email" name="email"> <input type="checkbox" name="address" id="address" checked><label>이메일 수신동의</label>
+         <br>
+         
+         <label>휴대폰 번호</label>
+         <br>
+         
+         <input type='number' name='phone1' min="4" max="5" step="3" />-
+        <input type='number' name='phone2' min="10" max="1200" step="3"/>-
+        <input type='number' name='phone3' min="10" max="1200" step="3" /><input type="checkbox" name="phon" id="phon" checked>
+         <br>
+         <br>
+         <button>초기화</button> <button>가입하기</button>
+
+
+
+    
+    </fieldset>
+
+
+ 
 </body>
 </html>
