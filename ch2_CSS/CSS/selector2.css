@@ -1,0 +1,112 @@
+/*
+    CSS파일
+    파일 전체가 <style>태그 내부라고 생각하면 된다.
+*/
+
+/* 기본 속성 선택자 */
+
+/* 모든 div 태그들중 name 속성의 속성값이 name-1인 요소들*/
+div[name = "name-1"]{background-color: orangered;}
+
+/* 모든 태그들중 name속성의 속성값이 name-2인 요소들*/
+*[name= "name-2"]{background-color: blue;}
+
+p[name= 'name-1']{background-color:  greenyellow;}
+
+
+/*자식 선택자*/
+#parent-ul>li> {background-color: orange;}
+
+/*  ul>li>span = 부모 ul의 자식의 li의 자식 span만 적용 */
+#parent-ul>li>span {background-color: orange;}
+
+/* 후손 선택자 */
+#test-div{
+    border : 2px solid black;
+}
+
+#test-div p{
+    background-color: yellowgreen;
+}
+
+/* 반응 선택자 */
+.div-cls{
+    /* block 요소만 크기 조정 가능 */
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: #ddd;
+
+    /* maargin : 외부요소와의 간격조정시 사용하는 속성 */
+    margin-bottom: 30px;
+    /* 요소에 마우스 커서가 올라오면 손가락모양으로 변경*/
+    cursor: pointer;
+}
+/* 클릭 하고 있을때만 반응하는 :active */
+#active-test:active{
+    background-color: yellow;
+}
+#hover-test:hover{
+    background-color: orange;
+    width: 300px;
+    height: 300px;
+
+    /* 스타일 변화 시간 지정 */
+    /*transition-duration: 1.5s;*/
+}
+#hover-test{
+    transition-duration: 1.5s;
+}
+/* 상태 선택자 */
+
+/* 요소에 초점이 맞춰져있을때 (:focus) */
+#focus-test:focus{
+    background-color: aqua;
+}
+
+/* 요소가 체크 되었을때(:checked) */
+input[name=fruits]:checked{
+    width: 30px;
+    height: 30px;
+
+    /*
+      radio, checkbox는 크기를 
+      제외한 스타일이 적용되지 않는다.
+    */
+}
+
+#test-div2>input:enabled{
+    background-color: lightgreen;
+}
+
+#test-div2>input:disabled{
+    background-color: lightcoral;
+}
+
+/* 동위 선택자*/
+
+/* A 바로 뒤에 있는 B요소 선택(+)*/
+#div1+div{background-color: olive;}
+
+/* A 바로 뒤에 있는 모든 b요소 선택(~)*/
+#div3~div{background-color: red;}
+
+label {
+    width: 30px;
+    height: 30px;
+
+    display: inline-block;
+
+    cursor: pointer;
+
+}
+
+#check1:checked+label{
+    background-image: url(../resources/image/iconsample.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#check1{
+    display: none;
+}

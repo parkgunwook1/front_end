@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 개요, 선택자1</title>
+    <style>
+    /* CSS주석 */ 
+    /* style : css 코드만 작성할 수 있는 영역을 제공하는 태그*/
+
+    /* 태그 선택자 */
+    div { border : 1px solid black;
+         /* 1px 두께의 검은 실선*/
+    }
+
+    strong {
+        background-color: yellow; /* 배경색 노란색*/
+    }
+    span{
+        background-color: pink; /*모든 span에 백그라운드 색을 핑크로 바꾸겠다.*/
+    }
+    /*아이디 선택자(#)*/
+    #li-1{background-color: red;}
+    #li-2{background-color: orange;}
+    #li-3{background-color: black;}
+    #li-4{background-color: blue;}
+    #li-5{background-color: blueviolet;}
+
+    /* 콤마를 이용해 여러 선택자 동시 작성*/
+    #li-1,#li-2,#li-3{
+        background-color: white;
+    }
+
+    /* 클래스 선ㄴ택자(.)*/
+    .test-1{color : red;}
+    .test-2{
+        color : white;
+        background-color: black;
+    }
+
+    /*미리 사용하고자하는 css코드를 작성하고 이후에 HTML에 클래스를 지정할 때 사용*/
+    .aaa{
+        font-weight: bold;
+        /* 글자 굵기 조절 */
+    }
+    
+    * {
+        /* 글꼴 크기 */
+        font-size: 20px;
+
+        /* 글꼴 모양*/
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+        
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS(Cascading Style Sheets)</h1>
+    <pre>
+        마크업 언어가 실제로 화면에
+        표시되는 방법을 기술하는 언어.
+        (HTML 코드가 화면에 어떤 스타일로 보여질지 지정하는 언어)
+
+        W3C에서 CSS를 웹 표준으로 지정
+    </pre>
+
+    <hr>
+
+    <h1>CSS Selector(선택자)</h1>
+    <pre>
+        Selector란?
+        현재 HTML문서 내에서 특정한 요소를 선택하는 문자 또는 문자열
+
+        스타일을 적용하고자 하는 요소를 선택하는 방법
+    </pre>
+
+    <hr>
+
+    <h3>태그 선택자</h3>
+    <pre>
+        현재 HTML 문서 내에 같은 태그들을 선택하는 선택자
+
+        <strong>[작성법]</strong>
+
+        태그명 {css 코드;}
+    </pre>
+
+    <div>
+        <strong>strong 태그에 작성한 내용</strong>
+        <br>
+
+        <span>span 태그에 작성된 내용입니다.</span>
+        <ul>
+            <li>
+                <strong>strong 태그에 작성한 내용</strong>
+            </li>
+            <li>
+                <span>span 태그에 작성된 내용입니다.</span>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <h3>id 선택자 (#id속성값)</h3>
+    <pre>
+        HTML 문서 내에서 id속성의 속성값과 값이 일치하는 요소를 선택하는 선택자다.
+
+        (중요!) id 속성값은 페이지 내에서 유일해야한다. 
+                -> 중복되는 id 속성 값이 있으면 안된다.
+
+        [작성법]
+        #id속성값(css코드;)
+
+    </pre>
+
+    <!--
+        JAVA : 낙타등 표기법(helloWorld)
+        HTML : 하이픈 표기법(li-1, class-1) 혹은 언더바 표기법(li_1)
+
+    -->
+    
+    <ol>
+        <!--li#li-${id 선택자 테스트$}*5-->
+        <li id="li-1">id 선택자 테스트1</li>
+        <li id="li-2">id 선택자 테스트2</li>
+        <li id="li-3">id 선택자 테스트3</li>
+        <li id="li-4">id 선택자 테스트4</li>
+        <li id="li-1">id 선택자 테스트5</li>
+
+    </ol>
+
+    <hr>
+
+    <h3>class 선택자(.calss속성값)</h3>
+    <pre>
+        HTML 문서 내에서 같은 class 속성 값을 가지는 태그를 모두 선택하는 선택자
+
+        [작성법]
+        .class속성값 {css코드}
+    </pre>
+
+    <ul>
+        <li class="test-1">클래스 선택자 테스트1</li>
+        <li class="test-2">클래스 선택자 테스트2</li>
+        <li class="test-2">클래스 선택자 테스트3</li>
+        <li class="test-1">클래스 선택자 테스트4</li>
+
+
+        <li class="aaa">클래스 선택자 테스트5</li>
+        <!-- 여러 클래스 적용 가능 -->
+        <li class="ass test-2">클래스 선택자 테스트6</li>
+
+        <!--
+            여러 클래스 작성 시 calss 속성값의 순서는 의미가 없음.
+            - > style 태그내의 css 코드 작성 순서에따라 다르게 적용될 수 있음
+        -->
+        <li class="test-2 aaa test-1">클래스 선택자 테스트7</li>
+    </ul>
+
+    <hr>
+
+    <h3>모든 요소 선택자(*)</h3>
+
+    <pre>
+        (단독 또는 다른 선택자와 함께 사용 가능한 선택자로, 모든 요소를 선택하는 선택자)
+    </pre>
+</body>
+
+</html>
