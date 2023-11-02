@@ -1,0 +1,82 @@
+/* 일반 구조 선택자 */
+
+/* :first-child : 형제 관계의 요소중 첫 번째 요소 */
+#test1>p:first-child{
+    background-color: red;
+    color: white;
+}
+
+/* last-child : 현재 관계의 요소중 마지막 요소*/
+#test1>:last-child{
+    background-color: orange;
+}
+
+/*
+   #test1 > p 선택자를 통해서
+   #test1의 자식 중 p태그만 선택했지만
+   #test1의 자식에는 pre 태그도 포함되어있다.
+    (선택은 p태그만 했지만, 형제로서는 p+pre태그가 있음)
+
+    #test1의 자식중 p태그의 형제 요소 중
+    마지막 요소(pre)를 선택하여 해당요소가
+    :last-child일 경우 선택
+*/
+
+/*
+   nth-child(수열)
+   형제 관계 요소 중 지정된 수의 요소를 모두 선택
+   (nth = n 번째)
+
+   * 순서를 따질 때 1부터 시작한다.
+*/
+#test1 > p:nth-child(2){
+    /* test1 자식 요소 중 2번째 요소를 선택,
+       그 요소가 p태그라면 선택*/
+    background-color: yellow;
+}
+
+/* 홀 수 번째 형제 요소 선택 (1 3 5 7 9,,)*/
+#test1>p:nth-child(2n -1){
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* :nth-last-child(수열)
+   형제 관계 여서증
+   뒤에서부터 지정된 수열번째 요소를 모두 선택 */
+
+#test1 > p:nth-last-child(){
+    color: blanchedalmond;
+}
+
+
+/*-----------------------------------------*/
+/* 형태 구조 선택자 */
+
+/* :first-of-type : 같이 선택된 형제들 중에서 첫번째 요소 선택 => p(1) + pr(1)*/
+#test2 > :first-of-type{
+    background-color: orange;
+}
+
+/* :last-of-type : 같이 선택된 형제들 중에서 마지막 요소 선택 => p태그중 마지막만 가져온다.*/
+#test2 > p:last-of-type{
+    background-color: skyblue;
+}
+
+/* :nth-of-type(수열) : 같이 선택된 형제들 중에서 수열 번째 요소 */
+/* #test2의 자식 p태그들중 홀수 번째 요소의 글자크기를 30px로 지정*/
+#test2 >p:nth-of-type(2n -1) {
+    font-size: 30px;
+}
+
+/* :nth-last-of-tpye(수열) : 같이 선택된 형제들중에 뒤에서 수열번째 모든 요소 */
+#test2 > p:nth-last-of-type(2n) {
+    background-color: red;
+}
+
+/* 부정선택자 */
+
+/* #test3의 자식 li요소중 3의 배수를 제와한 요소만 선택 하여 배경색 pink색 부여 */
+#test3 >li:not(:nth-child(3n)){
+    background-color: pink;
+}

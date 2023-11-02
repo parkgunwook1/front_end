@@ -1,0 +1,114 @@
+.area1{background-color: red;}
+.area2{background-color: orange;}
+.area3{background-color: yellow;}
+.area4{background-color: green;}
+.area5{background-color: blue;}
+
+
+.block{
+    border  : 1px solid black;
+    width: 150px;
+    height: 150px;
+
+    color:white;
+    display: block;   /* 요소 형식을 block으로 변경 */
+}
+
+.inline{
+    /* 요소 형식 inline 변경 */
+    display: inline;
+}
+.inline-block{
+    display: inline-block;
+}
+
+/* 감싸는 영역 요소 */
+#container-1{
+    border: 3px solid black;
+    width: 432px;
+    height: 472px;
+}
+
+/* 내부에 영역을 분할할 요소 */
+.div-1{
+    /* 고정크기 단위 영역 분할
+      -> 부모영역의 크기가 변하면 다시 계산해줘야한다.
+    */
+    /*width: 323px;
+    height: 250px;*/
+    /* 가변 크기 단위(%)
+      -> 화면이나 감싸는 영역의 크기에 비례해서 크기가 자동 계산
+      */
+      width: 100%;
+      height: 50%;
+}
+
+.div-1:first-of-type{
+    background-color: red;
+    height: 30%;
+}
+.div-1:last-of-type{
+    background-color: black;
+    height: 30%;
+}
+
+/* 상하 3분할 (20 30 50)*/
+#container-2{
+    border: 3px solid black;
+    width: 300px;
+    height: 440px;
+}
+
+#container-2 > .div-2:nth-of-type(1){
+    background-color: yellowgreen;
+    height: 20%;
+}
+
+#container-2 > .div-2:nth-of-type(2){
+    background-color: orange;
+    height: 30%;
+}
+
+#container-2 > .div-2:nth-of-type(3){
+    background-color: black;
+    height: 50%;
+}
+
+/* 좌우 2분할 */
+#container-3{
+    border: 5px solid red;
+    width: 400px;
+    height: 200px;
+}
+
+.div-3{
+    width: 50%;
+    height: 100%;
+    display: inline-block;
+}
+
+#container-3 > .div-3:first-child{
+    background-color: pink;
+}
+#container-3 > .div:last-child{
+    background-color: slategray;
+}
+
+/* display : none;  / visility : hiddenl */
+.div-4{
+    border: 3px solid black;
+    height: 100px;
+}
+#test4{
+    background-color: deeppink;
+
+    /* 요소가 투명한 색으로 변함 */
+    visibility: hidden;
+
+    /* 요소는 존재하지만 화면에서 사라지는 상태
+       (영역도 차지하지 않는다.) */
+    display: none;
+}
+#test4+div{
+    background-color: brown;
+}

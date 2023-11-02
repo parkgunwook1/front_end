@@ -1,0 +1,142 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+}
+/* content영역 */
+.content{
+    width: 150px;
+    height: 150px;
+    /*
+       width/height 속성은 기본적으로 content영역의 크기를 지정하는 속성
+
+    */
+}
+
+/* border 영역 */
+.border{
+    border : 10px solid red;
+    /* 10px 빨간 실선 */
+}
+
+/* padding 영역 */
+.padding{
+    padding : 30px;
+    /* 내용과 테두리 사이 간격을 상화자우 30px씩 벌림 */
+}
+
+/* margin 영역 */
+.margin{
+    margin : 50px;
+}
+
+/* 
+   서로 다른 요소가 margin 값이 겹치는경우 더 큰 maring값 적용
+*/
+#m1{
+    margin: 100px;
+}
+
+/************************************************************/
+
+/* 방향성 */
+.padding-test{
+/*  padding-top: 20px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+    padding-right: 30px; */ 
+
+    /* padding 속성 작성방법에 따라 특정 방향에 크기를 지정할 수 있음 */
+
+    /* padding에 값이 1개일 경우 : 상 하 좌 우 */
+    /* padding : 30px; */
+
+    /* 값 2개 : 상하, 좌우*/
+    padding: 50px 100px;
+
+    /* 값 3개 : 상 좌우 하*/
+    padding : 10px 50px 100px;
+
+    /* 값 4개 : 상 우 하 좌 (시계방향대로)*/
+    padding : 10px 20px 30px 40px;
+}
+
+.margin-test{
+    margin-top :30px;
+    margin-bottom: 50px;
+    margin-left: 100px;
+    margin-right: 200px;
+
+    /* margin 속성은 padding과 동일하게 방향성 추가할 수 있다. */
+}
+
+.border-test{
+    /* border 속성은 상하좌우 방향을 별도 지정할 수 없음 */
+    border : 4px solid red;
+
+    /* 크기  / 스타일 */
+    /* 스타일 / 색상 */
+    /* 스타일 */
+    /* 크기 / 스타일 / 색상 */
+
+    /*
+       border의 크기만을 설정하는 경우
+       상하좌우 한번에 처리할 수 있음.
+
+       border-width : padding, margin 동일한 방법으로
+       상, 하, 좌, 우 크기 설정이 가능
+    */
+
+    border-width : 20px 10px 5px 2px;
+
+    border-top: 1px solid black;
+    border-bottom: 5px dashed black;
+    border-left: 10px dotted blue;
+    border-right: 7px double orange;
+
+    border-width : 20px 10px 5px 2px;
+}
+
+/* margin : auto 테스트*/
+.margin-auto{
+
+   /* margin-top: 10px;
+    margin-left: 200px; */
+    
+
+    /* 좌우 요소간의 간격을 자동으로 지정하여 가운데 정렬 */
+    margin : 100px auto;
+}
+
+#box-sizing{
+    /* 테두리 10px , 패딩 20px , 나머지 전체 요소크기가
+        가로 세로 300px인 정사각형 만들기 */
+
+        border : 10px solid black;
+        padding : 20px;
+
+        /* 항상 width, height의 크기를 지정할 때 
+           padding 과 border를 감안하여 계산해야함 */
+        width: 300px;
+        height: 300px;
+        /* 이 문제를 해결하기위해 나온게 box-sizing */
+
+        width: 300px;
+        height: 300px;
+
+        /*
+           width/height는 기본적으로 content 영역에 대한 크기를 지정.
+           이를 변경하는 방법이 box-sizing
+        */
+        box-sizing: border-box;
+
+        /*
+           content-box(기본값)
+           - width / height 속성 지정 시 content영역만 적용
+
+           border-box
+           - width / height 속성 지정 시
+           content + padding + border의 크기를 합산한 결과가 지정한 속성값과 같게
+           자동으로 비율을 계산하여 적용한다.
+        */
+}
