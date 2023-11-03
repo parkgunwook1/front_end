@@ -1,0 +1,7 @@
+#color-ul >li {
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#color-ul > li:nth-child(1){color : red;}
+#colir-ul > li:nth-child(2){color : #8918F5;}

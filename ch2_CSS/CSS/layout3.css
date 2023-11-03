@@ -45,3 +45,42 @@ div{
     /* float : left, right를 모두 해체*/
     clear:both;
 }
+
+/* 좌우 2분할 */
+.container{
+    width: 400px;
+    height: 200px;
+}
+
+.div-2{
+    width: 50%;
+    height: 50%;
+    float: left;
+}
+.div-3{
+    width: 50%;
+    height: 50%;
+    float: right;
+}
+.div-4{
+    width: -50%;
+    height: -50%;
+    float: left;
+}
+
+.bg-1{background-color: red;}
+.bg-2{background-color: peru;}
+.bg-3{background-color: yellow;}
+.bg-4{background-color: green;}
+.bg-5{background-color: blue;}
+.bg-6{background-color: navy;}
+.bg-7{background-color: red;}
+
+.row-2{
+    height: 50%;
+}
+
+.container-3{
+    width: 400px;
+    height: 400px;
+}
