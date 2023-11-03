@@ -1,7 +1,7 @@
 ---
 title : FrontEnd
 created: 2023-11-13
-Study : HTML,CSS,JavaScript,React 
+Study : HTML, CSS, JavaScript, React 
 ---
 > [!summary]
 >- FrontEnd 기초지식 학습
