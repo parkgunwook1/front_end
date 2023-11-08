@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/ch3_JS/css/common.css">
+</head>
+<body>
+    <h1>자바스크립트에서의 데이터 입출력</h1>
+    <!--
+        window : 자바스크립트의 내장 객체로 브라우저창이 열릴 때마다 딱 하나씩 만들어지는 객체
+                 브라우저 창안에 존재하는 모든 요소들의 최상위 객체
+
+        document : 웹 문서(html)마다 하나씩 만들어지는 객체
+                   HTML문서에 대한 정보들을 가지고 있음
+    -->
+    <h2>1. 데이터를 출력하는 기본 구문</h2>
+    <p>
+        1) window.alert("알림창에 출력할 문구")<br>
+        2) window.console.log("콘솔창에 출력할 문구")<br>
+        3) document.write("화면에 출력할 문구")<br>
+        4) 선택할 요소.innerHTML/innerText = "해당 요소에 출력할 문구"
+    </p>
+
+    <h3>3) document.write("화면에 출력할 문구");</h3>
+
+    <button onclick="documentWriter()">화면에 출력하기</button>
+
+    <script>
+        function documentWriter(){
+            // document.write("document write 테스트해봄");
+            // document.write("<b>볼드처리</b><br><h2>안녕></h2>")
+            // 화면에 출력할 문자열에 html태그가 있을 경우 진짜 html 태그로 해석되어서 보여짐
+
+            document.write(document.querySelector("body").innerHTML)
+        }
+    </script>
+
+    <br>
+
+    <h3>4) 선택한 요소.innerHTML/innerText = "해당요소에 출력할 문구"</h3>
+    <div class="area" id="area1">
+        자바스크립트에서 어떤 요소(element) 안의 값(context값)을 가지고 온다거나<br>
+        변경하고자 할때 <b> innerHTML, innerText</b>라는 속성에 접근하면 됨
+    </div>
+
+    <button onclick="tagValue();">확인</button>
+    <script>
+        function tagValue(){
+
+            // 특정 요소의 값을 가지고 온다거나 변경하고자 할때는 먼저 해당 요소객체를 가져와서
+            // 변수에 담아둘것.
+            var divEl = document.getElementById("area1"); 
+            // 현재 문서에서 아이디값이 area1 요소를 찾은 후 변수에 저장
+            console.log(divEl); // 요소객체를 잘가져왔으면 에러가 안남.
+            console.dir(divEl); // console.dir : 해당 값의 디렉토리 구조를 통해 접근 가능한 모든 속성을 확인할 수 있다.
+            
+            // 선택된 요소내에 정보들을 알아내고자 한다면 속성들에 .를 통해 직접 접근이 가능
+            console.log(divEl.id) // id : 해당 요소의 현재 아이디값
+            console.log(divEl.tagName) // tagName : 해당 요소의 태그명(대문자)
+
+            // 선택된 요소내의 값(content)을 알아내고자한다면
+            console.log(divEl.innerHTML); // 요소 내부의 content영역값을 html코드 포함해서 가져온다.
+            console.log(div.innerText); // 요소내부의 content영역값중 텍스트만 포함해서 가져온다. (html태그 x)
+
+            // 위처럼 속성에 직접 접근하여 값을 가지고오는것도 가능하지만,
+            // 직접 접근해서 값을 변경하는것도 가능
+
+            divEl.innerHTML = "<b>innerHTML로 속성값을 변경함!</b>";
+            divEl.innerText = "<b>innerHTML로 속성값을 변경함!</b>";
+
+            // innerHTML로 변경하면 출력할 문구에 HTML태그 포함시 "태그"로 인식
+            // innerText로 변경하면 출력할 문구에 HTML태그 포함시 "문자열"로 인식
+
+            
+        }
+    </script>
+    <hr>
+
+    <h2>2. 데이터를 입력받는 기본 구문(변수에 기록 가능)</h2>
+    <p>
+        1) 변수 = window.confirm("질문내용")<br>
+        2) 변수 = window.prompt("질문내용")<br>
+        3) 변수 = 선택한요소.속성(id/className/innerHTML/innerText....)<br>
+        4) 변수 = 선택한 input요소.value;
+    </p>
+
+    <h3>1) window.confirm("질문내용");</h3>
+    <p>
+        confirm 호출 시 "질문내용"과 "확인/취소"버튼이 존재하는 알림창 발생<br>
+        확인버튼 클릭시 true/ 취소버튼 클릭시 false를 반환
+    </p>
+
+    <button conclick="testConfirm();">클릭</button>
+    <div class="area" id="area2"></div>
+
+    <script>
+        function testConfirm(){
+            var result = confirm("졸리면 확인, 아니면 취소를 누르세요"); // true/false
+
+            console.log(result);
+
+            var divEl = document.getElementById("area2");
+
+            if(result) {
+                divEl.innerHTML = "<h2>너무 졸립니다 ... </h2>";
+            }else {
+                divEl.innerHTML = "<h2>하나도 안졸립니다.^^ </h2>";
+            }
+        }
+    </script>
+
+    <br>
+
+    <h3>2) window.prompt("질문내용")</h3>
+    <p>
+        prompt 호출 시 "질문내용"과 입력할 수 있는 "텍스트상자"와
+        "확인/취소"버튼이 보여지는 알림창 발생<br>
+        - 확인버튼 클릭시 텍스트상잦에 입력되어있는 값이 반환<br>
+        - 취소버튼 클릭시 null 값이 반환
+    </p>
+
+    <button onclick="testPrompt();">클릭</button>
+    <div class="area" id="area3"></div>
+
+    <script>
+        function testPrompt(){
+            var name = prompt("당신의 이름은 무엇입니까?")
+            var age = prompt("당신의 나이는 몇 살입니까?");
+
+            // 당신은 xx살의 xx님 이군요. 반갑습니다.^^
+            var divEl = document.getElementById("area3");
+            console.dir(document);
+            // divEl = document.area3;
+
+            divEl.innerHTML = "<b>당신은 "+age+ " 살의 "+name +" 님 이군요. 반갑습니다.</b>"
+            divEl.innerHTML = "<b>당신은 ${age}  살의 ${name}님 이군요. 반갑습니다.</b>"
+        }
+    </script>
+
+    <h3>4) 선택한 input요소.value</h3>
+
+    아이디 : <input type="text" id="userId" value="rud"> <br>
+    비밀번호 : <input type="password" id="userPwd"> <br>
+
+    <button onclick="testInput();" id="test-btn">클릭</button>
+
+    <script>
+        function testInput(){
+            var input1 = document.getElementById("userId");
+            var input2 = document.getElementById("userPwd");
+            var btn = document.getElementById("test-btn");
+
+            console.log(input1.value);
+            console.log(input2.value);
+        }
+    </script>
+
+
+</body>
+</html>

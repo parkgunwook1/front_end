@@ -1,0 +1,11 @@
+.area{
+    width: 300px;
+    border: 1px solid red;
+    height: 100px;
+}
+.smaill{
+    height: 100px;
+}
+.big{
+    height: 200px;
+}
