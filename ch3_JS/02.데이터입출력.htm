@@ -144,7 +144,7 @@
     아이디 : <input type="text" id="userId" value="rud"> <br>
     비밀번호 : <input type="password" id="userPwd"> <br>
 
-    <button onclick="testInput();" id="test-btn">클릭</button>
+    <button onclick="testInput();" id="test-btn" data-hoho="data태그 테스트">클릭</button>
 
     <script>
         function testInput(){
@@ -152,8 +152,11 @@
             var input2 = document.getElementById("userPwd");
             var btn = document.getElementById("test-btn");
 
-            console.log(input1.value);
-            console.log(input2.value);
+            console.log(input1.value, input2.value);
+
+            console.log(btn.dataset.hoho);
+
+            input1.value = "경민"
         }
     </script>
 
