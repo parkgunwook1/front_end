@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>카테고리 선택 예제</title>
+</head>
+<body>
+    <h1>카테고리 선택</h1>
+  <div>
+   
+    <fieldset>
+        <legend>취미</legend>
+     <label><input type="checkbox" name="" id="selectAll"> 전체 선택</label>
+     <label><input type="checkbox" name="category" class="category"> 종합</label>
+    <label><input type="checkbox" name="category" class="category"> 소설</label>
+    <label><input type="checkbox" name="category" class="category"> 시/에세이</label>
+    <label><input type="checkbox" name="category" class="category"> 경제/경영</label>
+    <label><input type="checkbox" name="category" class="category"> 자기계발</label>
+    <label><input type="checkbox" name="category" class="category"> 아동</label> <br>
+    <label><input type="checkbox" name="category"class="category"> 여행</label>
+    <label><input type="checkbox" name="category"class="category"> 과학</label>
+    <label><input type="checkbox" name="category"class="category"> 역사/문화</label>
+    <label><input type="checkbox" name="category"class="category"> 외국어</label>
+    <label><input type="checkbox" name="category"class="category"> 컴퓨터</label>
+    <label><input type="checkbox" name="category"class="category"> 만화</label>
+    </fieldset>
+    <hr>
+    
+</div>
+
+
+<div id="area1" class="area big"></div>
+
+<button onclick="showMathMethod();">카테고리 선택</button>
+    <div id="area2" class="area big"></div>
+        
+
+    
+    <script>
+        // 전체 선택 체크박스와 카테고리 체크박스를 가져옵니다.
+        const selectAllCheckbox = document.getElementById('selectAll');
+        const categoryCheckboxes = document.querySelectorAll('.category');
+        const selectedCategories = document.getElementById('selectedCategories');
+
+        // 전체 선택 체크박스를 클릭할 때 동작할 함수
+        selectAllCheckbox.addEventListener('change', function() {
+            // 전체 선택 체크박스의 상태에 따라 카테고리 체크박스 상태 변경
+            categoryCheckboxes.forEach(function(checkbox) {
+                checkbox.checked = selectAllCheckbox.checked;
+            });
+        });
+
+        // 카테고리 체크박스를 클릭할 때 동작할 함수
+        categoryCheckboxes.forEach(function(checkbox) {
+            checkbox.addEventListener('change', function() {
+                // 하나라도 선택이 되어있지 않으면 전체 선택 체크박스 선택 해제
+                if (!checkbox.checked) {
+                    selectAllCheckbox.checked = false;
+                } else {
+                    // 모든 카테고리가 선택되면 전체 선택 체크박스 선택
+                    const allCategoriesSelected = Array.from(categoryCheckboxes).every(function(checkbox) {
+                        return checkbox.checked;
+                    });
+
+                    selectAllCheckbox.checked = allCategoriesSelected;
+                }
+
+                // 선택한 카테고리를 표시
+                const selectedCategoryLabels = Array.from(categoryCheckboxes)
+                    .filter(function(checkbox) {
+                        return checkbox.checked;
+                    })
+                    .map(function(checkbox) {
+                        return checkbox.parentNode.textContent;
+                    });
+
+                selectedCategories.textContent = selectedCategoryLabels.join(', ');
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
