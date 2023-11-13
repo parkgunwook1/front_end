@@ -1,0 +1,55 @@
+/* login.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fbf8f3; /* 아이보리 */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 12px;
+    background-color: #ffd54f; /* 연한 노랑색 */
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffecb3; /* 노랑색 투명도 적용 */
+}
+
+.signup-link {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+a {
+    color: #ffd54f; /* 연한 노랑색 */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ffecb3; /* 노랑색 투명도 적용 */
+}

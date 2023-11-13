@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="singup.css">
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>회원가입</h2>
+        <form id="signupForm">
+            <label for="signup-username">아이디:</label>
+            <input type="text" id="signup-username" name="signup-username" required>
+
+            <label for="signup-password">비밀번호:</label>
+            <input type="password" id="signup-password" name="signup-password" required>
+
+            <label for="signup-name">이름:</label>
+            <input type="text" id="signup-name" name="signup-name" required>
+
+            <label for="signup-phone">휴대번호:</label>
+            <input type="tel" id="signup-phone" name="signup-phone" required>
+
+            <button type="button" onclick="registerUser()">회원가입</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
