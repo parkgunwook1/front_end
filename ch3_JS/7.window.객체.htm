@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window용 객체</h1>
+
+    <h4> window.open('url', '창이름','창의특성')</h4>
+    <button onclick="test1();">네이버</button>
+
+    <script>
+        function test1(){
+            //window.open();
+            /*
+              window.open('url','창이름','특성')
+              첫번째 인자값 : 새 창에서 열고자 하는 url 주소
+              두번째 인자값 : 창 이름, 창이름이 같은게 이미 열려있는 경우, 새로 열리지 않고
+                             이미 열려있는 창에서 새로고침이 된다.
+              세번째 인자값 : 창의 특성, 새로 열람창의 너비, 높이, 툴바, 스크롤바, 리사이즈여부 등등...(브라우저 마다 작동방식 다름)               
+            */
+        //    window.open('http://www.naver.com','네이버')
+
+           /*
+              * 창의 특성
+              1) px
+              width  = 500
+              height = 600
+
+              2) yes / no
+              resizable : 창 크기 조절가능 여부
+              location  : 주소창이 보일건지 안보일건지 여부 
+              menubar : 메뉴바 표시 여부
+              scrollbars : 스크롤바 표시 여부
+              status : 상태표시줄
+              tollbar : 도구모음
+           */
+          window.open('http://naver.com','네이버','width-500 , height-600 , resizable=no, location=no');
+
+        }
+    </script>
+
+    <br>
+
+    <h3>* window 객체의 timer관련 메소드</h3>
+    <h4> window.setTimeout(콜백함수, ms)</h4>
+
+    <button onclick="test2();">확인</button>
+
+    <script>
+        function test2(){
+
+            // 3초 후 alert창이 뜨도록
+            // setTimeout( function(){
+            //     alert('하이하이');
+            // }, 3000); 
+
+            const newWindow = window.open(); //새로열린 창의 window객체 반환
+            newWindow.alert('이 페이지는 3초후에 자동으로 닫힙니다.')
+
+            let timefn = setTimeout(function(){
+                newWindow.close();
+            }, 3000);
+
+            clearTimeout(timefn); //setTime아웃 비워주는 함수
+            // setTimeout : 내가 제시한 일정 시간 후에 해당함수를 "딱 한번"만 실행
+        }
+    </script>
+
+    <br>
+
+    <h4> window.setInterval(콜백함수, ms);</h4>
+    <button onclick="test3()">확인</button>
+    <div id="area1" class="area"></div>
+
+    <script>
+        function test3(){
+
+            setInterval(
+                function(){
+                    const now = new Date();
+                    let hour = now.getHours();
+                    let min = now.getMinutes();
+                    let second = now.getSeconds();
+                    conut++;
+
+                    if(conut > 10) clearInterval(clock)
+
+                    if(hour > 12){
+                        hour -= 12; // 13시 > 1시
+                    }
+                    if(hour < 10){
+                        hour = "0"+hour; // 1시 > 10시
+                    }
+                    if(min < 10){
+                        min = "0"+min; // 1분 > 01분
+                    }
+                    if(second < 10){
+                        second = "0"+second;
+                    }
+
+                    area1.innerHTML = `${hour}:${min}${second}`;
+                }
+                ,1000
+            )
+           // setInterval : 내가지정한 시간 간격마다 매번 함수를 출력
+        }
+        
+    </script>
+
+    <hr>
+
+    <h1> BOM(browser Object Model)</h1>
+
+    <h3>location 객체</h3>
+    <p>
+        브라우저 주소창과 관련된 객체
+    </p>
+
+    <button onclick="console.log(kocation);">확인</button>
+
+    <br><br>
+
+    <a href="http://www.naver.com">네이버로 이동</a>
+    <!--
+        a태그는 출력시 요청할 url을 작성할 수 있는 href속성을 제공한다.
+    -->
+
+    <div onclick="location.href = 'http://naver.com'">
+        네이버로 이동</div>
+
+        
+    <button onclick="location.assign('http://www.google.com')">구글로 이동</button>
+    <br>
+    <button onclick="location.replace('http://www.google.com')">구글로 이동</button>
+    <!-- replace 뒤로가기 없다.-->
+
+    <br><br><br><br><br>
+
+    <button onclick="location.href = location.href">새로고침</button>
+    <br>
+    <button onclick="location.reload();">새로고침</button>
+    <br><br>
+
+    <h3>screen 객체</h3>
+    <button onclick="console.log(screen)">screen객체 확인</button>
+    <!--
+        해상도에 따라 가로, 세로, 해상도, 브라우저 위치값들이 다르다.
+    -->
+
+    <h3>navigator 객체</h3>
+    <button onclick="console.log(navigator)">navigator 객체 확인</button>
+    <!--
+        브라우저에 대한 정보(제조사, 버전, 종류 ...)
+    -->
+
+    <h3>history 객체</h3>
+    <button onclick="console.log(history)">history 객체확인</button>
+
+    <hr>
+
+    <h1>
+        DOM(Document Object Model)
+    </h1>
+    <p>
+        HTML에 있는 각각의 태그들을 노드(Node)라고 부름 <br>
+        - 요소노드(Element node) : 태그 그 자체만을 의미함 <br>
+        - 텍스트노드(Text Node) : 태그내에 기록되는 문자열 <br>
+
+        텍스트노드가 존재하는 요소(시작태그와 종료태그가 한쌍으로 이루어져있는 요소)
+        : div , a, h1, p , pre...  <br>
+
+        텍스트노드가 존재하지 않는요소(시작태그로만 이루어져있는 요소)
+        : input, img...  <br>
+
+        - 속성노드(attribute Node) : 태그내의 속성 <br>
+        - 코맨트노드(comment Node) : HTML내에 작성하는 주석
+    </p>
+
+    <h3> 노드 생성과 관련된 메소드</h3>
+    <h4> 텍스트노드가 존재하는 노드 생성(시작태그 + 종료태그)</h4>
+
+    <button onclick="test4();">확인</button>
+    <div id="area2" class="small"></div>
+
+    <script>
+        function test4(){
+            
+            // <h3>안녕하세요</h3> <- 자바스크립트로 생성
+
+            // 자바스크립트를 통해 동적으로 요소를 만드는 방법
+            // 1) innerHTML를 사용
+            AREA2.innerHTML = '<h3>안녕하세요</h3>';
+
+            // 2) document에서 제공하는 메소드를 통해 요소객체로 만드는 방법
+            // a) elementNode객체 생성
+            //    document.createElement('태그명');
+            const h3 = document.createElement("h3"); //<h3></h3> 가 만들어진 상태
+
+            // b) textNode객체 생성
+            //    document.createTextNode("문구");
+            const textNode = document.createTextNode("안녕하세요");
+
+            // c) 두 개의 노드를 연결(요소노드 하위로 텍스트노드 추가)
+            //    요소노드.appendChild(노드)
+            h3.appendChild(textNode); // <h3>안녕허세요</h3>
+
+            console.log(h3, typeof h3);
+
+            // innerHTML은 문자열형태의 HTML 코드를 넣어줘야함.
+            // area2.innerHTML = h3;
+            // div태그요소에 h3를 출력하고싶다면?
+            // appendChild를 이용
+            area2.appendChild(h3);
+        }
+    </script>
+
+    <br>
+
+    <h4> 텍스트노드가 존재하지 않는 노드 생성(시작태그만 존재)</h4>
+    <button onclick="test5();">확인</button>
+    <div id="area3" class="big"></div>
+
+    <script>
+        function test5(){
+            const img = document.createElement('img'); // <img>
+
+            img.setAttribute('src','');            
+            img.width = "200"
+            img.height = "100";
+            img.onclick = function(){
+                // 요소 삭제
+                img.remove(img);
+        
+            }
+            
+            console.log(img);
+        }
+
+        
+    </script>
+
+<br><br><br><br><br>
+</body>
+</html>

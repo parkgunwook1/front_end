@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/ch3_JS/css/common.css" rel="stylesheet">
+</head>
+<body>
+    <fieldset>
+        <legend>구매 정보</legend>
+        <ul id="product-ul">
+        <li>
+            구매자 : <input type="text" id="userId" placeholder="구매자의 이름 입력하세요."><br>
+        </li>
+
+        <li>
+            상품명 : <input type="text" id="productName" placeholder="구매 상품명을 입력하세요."> <br>
+        </li>
+
+        <li>
+            가격 : <input type="number" id="price" placeholder="구매 가격을 입력하세요."><br>
+        </li>
+
+        <li>
+            구매수량 : <input type="number" id="amount" placeholder="최소 10" min="10" max="100" step="10"><br>
+        </li>
+
+        <li>
+            남은등급 : <input type="range" id="grade" min="1" max="9" step="2"><br>
+        </li>
+
+        <li>
+            기타사항 : <textarea id="etc" cols="30" rows="5"></textarea><br>
+        </li>
+    </ul>
+    </fieldset>
+
+    <br><br>
+    
+    <button onclick="printValue();">입력 값 출력하기</button>
+    
+    <br><br>
+
+    <div id="area1" class="area" style="border-color: black;"></div>
+
+    <script>
+        amount.onkeyup = function(e){
+            if(e.target.value > 100){
+                e.target.value = 10;
+            }
+        }
+
+        const printValue = () => {
+
+            area1.innerHTML += `구매자 명 : ${userid.vale}<br>`;
+            area1.innerHTML += `상품명 : ${productName.value}<br>`;
+            area1.innerHTML += `가격 : ${price.value}<br>`;
+            area1.innerHTML += `구매수량 : ${amount.value}<br>`;
+            area1.innerHTML += `납품등급 : ${grade.value}<br>`;
+            area1.innerHTML += `기타사항 : ${etc.value}<br>`;
+        }
+    </script>
+
+    
+</body>
+</html>

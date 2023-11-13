@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/ch3_JS/css/common.css">
+</head>
+<body>
+
+    <h1>이벤트</h1>
+
+    <h2>1. 이벤트 모델 종류</h2>
+
+    <p>
+        요소 객체를 가지고 와서 해당 요소 객체에 이벤트 속성에 접근한 후<br>
+        이벤트 핸들러를 연결하는 방식 <br>
+        이벤트를 제거할 수 도 있음
+    </p>
+
+    <!-- 요소 내부에 인라인으로 이벤트속성을 기술하지 않음-->
+
+    <button id="btn1">확인</button>
+    <button id="btn2">확인</button>
+
+    <div id="area1" class="area"></div>
+
+    <script>
+        btn1.onclick = function(){
+            area1.innerHTML += "BTN이 출력되었습니다. <br>"
+        }
+        btn2.onclick = ()  => {
+            area1.innerHTML += "btn2가 출력되었습니다. <br>"
+            btn1.onclick = null; // bt1 이벤트 삭제
+        }
+    </script>
+
+    <h3> 인라인 이벤트 모델</h3>
+    <p>
+        요소 내부에 직접적으로 이벤트속성을 제시해서 실행할 내용을 정의하는 방식 <br>
+        주로 script 태그 내에 정의되어있는 함수를 호출하는 방식을 선호
+    </p>
+    <button onclick="test1();">확인</button>
+    <button onclick="">확인</button>
+    
+    <div id="area2" class="area"></div>
+
+    <script>
+        function test1(){
+            area2.innerHTML += "첫번째 버튼 클릭 <br>"
+        }
+    </script>
+
+    <br>
+
+    <h3> 표준 이벤트 모델(addEventListener)</h3>
+
+    <button id="btn3">확인</button>
+
+    <script>
+        const btn3 = document.getElementById('btn3');
+
+        // 이벤트를 걸고자하는 요소 객체.addEventLustener('이벤트명',이벤트핸들러)
+        btn3.addEventListener('click', function(){
+            alert('표준이벤트모델 테스트');
+        })
+        btn3.addEventListener('click', function(){
+            alert('표준이벤트모델 테스트2');
+        })
+
+        // 버튼안으로 마우스 포인터가 들어가는 순간 발생하는 이벤트 : mouseenter
+        btn.addEventListener('mouseenter', () => {
+            btn3.style.backgroundColor = 'pink';
+        })
+
+        // 버튼안에서 밖으로 마우스포인터가 빠져나가는순간 발생하는 이벤트 : mouseout
+        btn3.addEventListener('mouseout', function(){
+            btn3.style.backgroundColor = 'yellow';
+        })
+    </script>
+
+    <hr>
+
+    <h2> 태그별로 기본적으로 가지고 있는 이벤트 제거</h2>
+
+    <p>
+        기본적으로 이벤트를 가지고 있는 요소<br>
+        - a태그 : 출력시 href에 제시되어있는 url을 요청하는 기본이벤트를 보유<br>
+        - form태그 내의 submit : 클릭시 사용자가 입력한 정보들을 action에 제시되어있는 url로 제출하면서 요청하는
+                                 기본이벤트를 보유
+        <br><br>
+        태그 내에 기본적으로 설정되어있는 이벤트를 제거하고자 한다면 (실행 안되게끔)<br>
+        => 이벤트 핸들러의 return 값을 false로 리턴하면 기본이벤트가 제거된다.
+    </p>
+
+    <a href="http://www.naver.com" onclick="return false;">네이버로 이동</a>
+    <br><br>
+    <a href="http://www.naver.com" onclick="return test4();">네이버로 이동</a>
+
+    <script>
+        function test(){
+            return false;
+        }
+    </script>
+
+    <form action="test.do" method="get">
+        아이디 : <input type="text" name="userId" id="userId"> <br>
+        <label for="" style="font-size: 10px; color: gray;">영문자 또는 숫자로만 총 5~12자 사이로 입력해주세요</label>
+
+        비밀번호 : <input type="password" name="userPwd" id="userPwd"> <br>
+        비밀번호확인 : <input type="password" id="checkPwd"> <br>
+
+        <input type="submit" value="회원가입" onclick="valdate();">
+    </form>
+
+    <script>
+        const validate = () => {
+
+            // 아이디에 대한 유효성 검사
+            // 영문자 또는 숫자로만 5글자 ~ 12글자 이하가 맞는지 검사
+            // 맞지 않을 경우 제출이 불가하게끔 return false;
+            // 로직이 너무복잡하기 때문에 정규표현식을 통해 유효성검사를 할 수 있다.
+
+            const id = userId.value;
+
+            // if(id.length >= 5 && id.length <= 12){ // 글자수가 5~12글자인경우
+
+            //     for(let i =0; i <id.length; i++){
+            //         let char = id.charAt(i);
+            //         if((char >= '0' && char < 10) || (char >= 'a' && 'z') || (char >= 'A' && 'Z')){
+            //             return false;
+            //         }
+            //     }
+            //     }else {
+            //         return false;
+
+            // }
+
+            // 정규표현식을 통해서 유효한 아이디에 해당되는 특정패턴을 만들어보기
+            const regExp = /^[a-zA-Z0-9]{5,12}$/;
+            // 1단계 : //   : 정규표현식 틀.
+            // 2단계 : /^$/ : ^시작부터 $끝까지
+            // 3단계 : /^[]$/ : [] 내의 문자중 하나라도 존재할 경우
+            // 4단계 : /^[abcdefg...z]$/ : 소문자 a부터 z까지 
+            // 5단계 : /^[a-zA-Z]$/ : 소문자 a부터(-) z까지, A-Z까지 
+            // 6단계 : /^[a-zA-Z0-9]$/ : 숫자 0~9 
+            // 7단계 : /^[a-zA-Z0-9]{5,12}$/ : 5글자 이상 12글자 이하인지 글자수 체크 
+
+            if(regExp.test(id)){
+                // 정규표현식 객체에서 제공하는 함수로, 해당정규식을 만족하는지 묻는 함수,
+
+                alert("유효한 아이디가 아닙니다. 다시 입력해주세요.");
+                return false;
+            }
+
+            // 비밀번호 일치여부 확인.
+            if(userPwd.value != checkPwd.value){
+                alert('비밀번호가 일치하지않습니다.');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+
+
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+</body>
+</html>
