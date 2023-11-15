@@ -9,8 +9,11 @@ body {
 }
 
 nav {
-    background-color: rgba(255, 213, 79, 0.8); /* 연한 노랑색 (투명도 적용) */
-    padding: 10px;
+    background-color: rgba(248, 244, 232, 0.8); /* 연한 노랑색 (투명도 적용) */
+    padding: 0px 3px;
+    font-size: 10px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 nav ul {
@@ -27,6 +30,37 @@ nav li {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+}
+/* 추가된 스타일 */
+.login-box {
+    border: 1px solid #333;
+    padding: 2px 5px;
+    font-size: 10px;
+    display: flex;
+    float: right;
+    border-radius: 6px;
+}
+
+/* 카트 */
+.cart-container {
+    text-align: center;
+}
+
+.cart-item {
+    display: inline-block;
+    margin: 0 10px;
+    text-align: left; /* 장바구니 아이템 텍스트 왼쪽 정렬 */
+}
+
+.cart-box a {
+    display: block;
+    background-color: #ddd; /* 임시 배경색 */
+    border-radius: 50%; /* 동그란 형태로 만들기 */
+    line-height: 30px; /* 수직 가운데 정렬 */
+    text-align: center;
+    color: #111010;
+    font-size: 10px; /* 원하는 크기로 조절 */
+    text-decoration: none;
 }
 
 footer {
