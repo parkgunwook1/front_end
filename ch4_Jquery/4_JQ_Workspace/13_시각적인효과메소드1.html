@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>시각적인 효과 메소드(Effect 메소드)</h1>
+    <p>
+        페이지 내에 애니메이션 효과를 만들기 위해 사용되는 메소드 집합 <br>
+    </p>
+    <h3>* show() 와 hide(), toggle()</h3>
+    <p>
+        선택된 요소가 점점 커지면서 보이고(show), 점점 작아지면서 사라지게(hide)하는 메소드
+    </p>
+
+    <button id="hide">숨기기</button>
+    <button id="show">보여주기</button>
+    <button id="toggle">토글</button>
+
+    <img id='bono' src="../1_HTML_Workspace/resources/resources/image/bono.jpg" alt="">
+
+    <script>
+        $(function(){
+            $("#hide").click(function(){
+                $("#bono").hide(3000); // 3000ms동안 서서히 사라진다.
+            });
+
+            $("#show").click(function(){
+                $("#bono").show(1000);
+            });
+
+            // toggle()은 on/off기능. 
+            $("#toggle").click(function(){
+                $("#bono").toggle();
+            })
+        })
+    </script>
+
+
+
+
+</body>
+</html>

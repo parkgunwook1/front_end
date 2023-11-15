@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1>Content영역 관련 메소드들</h1>
+
+    <h3>* html("문구") 메소드 : innerHTML속성과 관련된 메소드 </h3>
+    <p>
+        선택된 요소의 content영역을 리턴해주거나 또는 변경해주는 메소드 <br>
+        - $("선택자").html() : 선택된 요소의 content영역의 값을 "반환"해줌 <br>
+        - $("선택자").html("문구") : 선택된 요소의 content 영역 값을 해당 문구로 변경해줌 <br>
+    </p>
+
+    <h1 id="test1">
+        <a href="">네이버로</a>
+    </h1>
+    
+    <h1 id="test2">
+
+    </h1>
+
+    <script>
+        $(function(){
+            const tmp = $("#test1").html(); // html태그까지 포함하여 가져온다.
+            $("#test2").html(tmp);
+            $("#test2").children().attr("href","https://naver.com");
+        })
+    </script>
+
+    <br><br>
+
+    <div class="class1">test1</div>
+    <div class="class1">test1</div>
+    <div class="class1">test1</div>
+
+    <script>
+        $(function(){
+
+            //$(".class1").html('<h1>zzz</h1>');
+
+            // 각 다른 내용으로 화면에 출력하고 싶을때는
+            // 선택된 요소들에 순차적으로 접근할때마다 실행하는 콜백함수를 매개변수로 전달하면 된다.
+
+            // index : 순차적으로 접근하는요소의 인덱스 값.
+            // html  : 순차적으로 접근하는 요소의 content영역값
+            $(".class1").html(function(index,html){
+                return `<h1> 인덱스 : ${index} , content내용 : ${html}</h1>`;
+            })
+        })
+    </script>
+
+    <hr>
+
+    <h3>* text('문구') 메소드 : innerText속성과 관련된 메소드</h3>
+    <p>
+        선택된 요소의 content영역의 텍스트만 리턴해주거나 변경해주는 메소드 <br>
+        - $("선택자").text() : 선택된 요소의 content영역의 값중 텍스트만 리턴해줌 <br>
+        - $("선택자").text("문구") : 선택된 요소의 content내용을 전달한 문구로 변경해줌 
+    </p>
+
+    <h1 id="test3">
+        <a href="">구글로</a>
+    </h1>
+
+    <h1 id="test4">
+
+    </h1>
+
+    <div class="class2">test2</div>
+    <div class="class2">test2</div>
+    <div class="class2">test2</div>
+
+    <script>
+        $(function(){
+            const tmp = $("#test3").text();
+
+            $("#test4").text("<a>"+tmp+"</a>");
+
+            $(".class2").text(function(index , text){
+                return `<h1>인덱스 : ${index} , content : ${text}</h1>`;
+            })
+        })
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

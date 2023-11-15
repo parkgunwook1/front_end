@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .highlight-0{
+            background-color: red;
+        }
+        .highlight-1{
+            background-color: orange;
+        }
+        .highlight-2{
+            background-color: yellow;
+        }
+        .highlight-3{
+            background-color: green;
+        }
+        .highlight-4{
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>추가적인 메소드</h1>
+
+    <h3>* each 메소드</h3>
+    <p>
+        배열의 모든 인덱스에 순차적으로 접근하고자 할 때 , <br>
+        객체가 가지고 있는 모든 속성에 순차적으로 접근하고자 할 때 , <br>
+        사용하는 forEach함수와 유사하게 수행되는 메소드
+    </p>
+
+    <pre>
+        [표현법]
+        1) $.each( 객체/배열 , function(){
+            // 수행내용
+        })
+
+        2) $(객체/배열).each(function(매개변수1, 매개변수2){
+            //수행내용
+        })
+
+        순차적으로 객체/배열의 인덱스에 접근할 때마다 함수가 실행 , 매개변수는 생략 가능 
+
+        만약 반복문의 매개변수로 객체를 제시했다면,
+        콜백함수의 첫번째 매개변수로는 순차적으로 접근된 객체의 속성명(키)이 담김
+                  두번째 매개변수로는 해당 속성값(밸류)이 담김
+
+        만약 배열을 제시했다면,
+        콜백함수의 첫번째 매개변수로는 순차적으로 접근된 배열의 인덱스가 담김
+                  두번째 매개변수로는 해당 인덱스에 담긴 값이 담긴다. 
+    </pre>
+
+    <div id="area1"></div>
+
+    <script>
+        $(function(){
+            const arr = ["민","경","민","푸","바","오"];
+
+            // 1번째 방법 $.each
+            $.each(arr, function(index, value){
+                console.log(`인덱스 : ${index}, 값 : ${value}`);
+            })
+            
+            // 2번째 방법 객체/배열.each메소드
+            // 배열을 $()감싸줘서 배열객체를 jquery객체로 변환
+            $(arr).each(function(index,value){
+                console.log(`인덱스 : ${index}, 값 : ${value}`);
+            })
+
+            //객체를 반복시키고자할때는 1번째 방법만 사용가능
+            const student= {
+                name:'홍길동',
+                age:20,
+                address:'서울'
+            }
+            $.each(student, function( key, value){
+                console.log(`속성명 : ${key} , 속성값 : ${value }`)
+            })
+        })
+    </script>
+
+    <!--
+        대표적으로 each메소드를 쓰는경우 : 선택한 여러개의 요소에 순차적으로 접근하고자 할 때
+    -->
+
+    <div id="wrap">
+        <h1>item-1</h1>
+        <h1>item-2</h1>
+        <h1>item-3</h1>
+        <h1>item-4</h1>
+        <h1>item-5</h1>
+    </div>
+
+    <script>
+        $(function(){
+            //[h1,h1,h1,h1,h1]
+            $("#wrap").children().each(function(index, el){ // el: 순차적으로 접근된 h1원 요소 객체
+                //console.log(el);// html요소 객체가 그대로 담겨져잇음
+                //el.addClass("highlight-"+index); addClass함수는 jquery객체에서만 사용가능하기 때문에 에러 발생
+
+                // el이 자바스크립트 방식으로 선택된 요소객체이기때문에 문제다.
+
+                // 해결방법 1. 자바스크립트 방식으로 해결
+                //el.className = 'highlight-'+index;
+
+                // 해결방법 2. $()로 감싸서 jquery객체로 변환시켜주기
+                //$(el).addClass('highlight-'+index);
+
+                // 해결방법 3. $(this) => 순차적으로 접근되는 해당 요소객체
+                $(this).addClass('highlight-'+index);
+            })
+        })
+    </script>
+
+    <!-- jQuery방식으로 자바스크립트 방식의 요소객체 바꾸기 -->
+    <div id="test">안녕하세요</div>
+
+    <script>
+        $(function(){
+
+            //js방식
+            const div = document.getElementById("test");
+
+            //js방식으로 스타일 변경
+            //div.style.backgroundColor = 'pink';
+
+            // jquery방식으로 접근
+            //div.css("backgroundColor",'pink'); // js로 선택한요소에서는 jquery함수 사용불가.
+
+            // 이경우에는 $()로 감싸줘서 jquery객체로 변환시켜줘야한다.
+            $(div).css('backgroundColor','pink'); 
+        })
+    </script>
+
+<br>
+<hr>
+
+    <h3>* is 메소드 </h3>
+    <p>
+        $("선택자1").is("선택자2") <br>
+        선택된 요소1가 내가 전달한 전달값(선택자2)와 일치하는지 판단해서 그에 해당하는 논리값을 반환
+    </p>
+
+    <h3 class="test">test1</h3>
+    <h3>test2</h3>
+    <h3 class="test">test3</h3>
+    <h3 class="test">test4</h3>
+    <h3>test5</h3>
+    <h3 class="test">test6</h3>
+
+    <script>
+        $(function(){
+
+            $("h3").each(function(){
+
+                // 현재 반복을 진행중인 요소가 test클래스를 가지고 있는지 확인 후 , 
+                // test클래스를 보유하고있다면 , 배경색을 orange로 변경 / 보유하고있찌 않다면 보라색으로 변경
+                if( $(this).is('.test') ){
+                    $(this).css("background",'orange');
+                }else{
+                    $(this).css('background','purple');
+                }
+
+            })
+
+        })
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .wrap, .wrap *{
+            border : 1px solid lightgray;
+            display: block;
+            margin: 15px;
+            padding: 15px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>탐색 ( 순회) 메소드 </h1>
+
+    <h3>
+        동위 메소드 : 같은 레벨에 있는 요소들을 선택할 수 있는 메소드 
+    </h3>
+
+    <div class="wrap">
+       <p>p</p>
+       <span>span</span>
+       <h2>h2</h2>
+       <h3>h3</h3>
+       <p>p</p>
+    </div>
+
+    <p>
+        <h4>- $("선택자").siblings()</h4>
+        선택된 요소와 같은 레벨에 있는 모든 요소들 선택 
+
+        <h4>- $("선택자").siblings("선택자")</h4>
+        선택된 요소와 같은 레벨에 있는 요소들 중 제시한 선택자와 일치하는 요소만 선택 
+
+        <h4>- $("선택자").next()</h4>
+        선택된 요소와 같은 레벨에 있는 요소들 중에서 바로 다음 요소 딱 하나만 선택 +
+
+        <h4>- $("선택자").nextAll()</h4>
+        선택된 요소와 같은 레벨에 있는 요소들 중에서 바로 다음 요소들 전부 선택 ~
+
+        <h4>- $("선택자").nextUntil("선택자")</h4>
+        선택자 요소와 같은 레벨에 있는 다음요소들중에서 제시한 선택자와 일치하는 요소 까지 선택 
+
+        <h4>- $("선택자").prev()</h4>
+        선택된 요소와 같은레벨에 있는 요소들 중에서 바로 이전 요소 딱 하나만 선택 
+
+        <h4>- $("선택자").prevAll()</h4>
+        선택된 요소와 같은레벨에 있는 요소들 중에서 바로 이전 요소들 다 선택 
+
+        <h4>- $("선택자").prevUntil()</h4>
+        선택된 요소와 같은 레벨에 있는 이전 요소들 중에서 제시한 값과 일치하는 요소들 까지만 선택
+    </p>
+
+    <script>
+        $(function(){
+            const style1 = {color:"red", border:"2px solid red"};
+            const style2 = {color:"blue", border:"2px solid blue"};
+            const style3 = {color:"green", border:"2px solid green"};
+            const style4 = {color:"orange", border:"2px solid orange"};
+            const style5 = {color:"purple", border:"2px solid purple"};
+            
+            $("h2").siblings().css(style1);
+            $("h2").siblings("p").css(style2);
+
+            $("h2").next().css(style3); // + 선택자와 비슷한 역할
+            $("h2").nextAll().css(style4); // ~ 선택자와 비슷한 역할
+            $("h2").nextUntil("p").css("font-size","3em");
+
+            $("h2").prev().css("backgroundColor","pink");
+            $("h2").prevAll().css(style4);
+            $("h2").prevUntil("p").css("font-size","3em");
+        })
+    </script>
+
+</body>
+</html>

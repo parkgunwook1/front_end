@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .added{
+            color:palegreen;
+        }
+        .item{
+            background-color: yellowgreen;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+            margin: 5px;
+        }
+
+        .item span {
+            font-size: 25px;
+            font-weight: bold;
+            color:white;
+        }
+
+        .lime{
+            background-color:lime;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>요소 생성 및 제거</h1>
+
+    <h3>* 동적으로 요소 생성</h3>
+
+    <button id="btn">요소 생성</button>
+
+    <div id="area1"></div>
+
+    <script>
+        $(function(){
+            $("#btn").click(function(){
+                // p태그 동적 생성
+
+                //1. 문자열로 생성하는 방법
+                const el1 = "<p>Create Element By Text</p>";
+
+                // 2. DOM메소드로 만드는 방법(createElement, createTextNode, ..)
+                const el2 = document.createElement("p"); //<p></p>
+                const text = document.createTextNode("CreateElement By DOM"); // 문자열
+                el2.appendChild(text);// <p>문자열</p>
+
+                // 3. jquery를 이용해서 만드는 방법
+                const el3 = $("<p></p>").text("Create Element By jQuery");
+
+                console.log(el1, el2, el3);
+
+                // js방식
+                //area1.append(el1,el2,el3); //el2요소만 정상 출력
+                
+                // jq방식
+                $("#area1").append(el1,el2,el3);
+            })
+        })  
+    </script>
+
+    <h3>* 삽입 관련 메소드 part 1</h3>
+    <p>
+        선택된 요소를 기준으로 새로이 생성된 요소를 추가하는 메소드 <br><br>
+
+        $(A).append(B) : A요소 내에 뒷부분에 B요소를 추가 (자손/하위) <br>
+        $(A).prepend(B) : A요소 내에 앞부분에 B요소를 추가 (자손/하위) <br>
+        $(A).before(B) : A요소 앞에 B를 추가 (동위) <br>
+        $(A).after(B)  : A요소 뒤에 B를 추가 (동위) <br>
+    </p>
+
+    <h3>* 삽입 관련 메소드 part 2</h3>
+    <p>
+        $(B).appendTo(A) : B를 A요소 내에 뒷부분에 추가 (자손/하위) <br>
+        $(B).prependTo(A) : B를 A요소 내에 앞부분에 추가 (자손/하위) <br>
+        $(B).insertBefore(A) : B를 A요소 앞에 추가(동위) <br>
+        $(B).insertAfter(B) : B를 A요소 뒤에 추가 (동위) <br>
+    </p>
+
+    <h1 id="test1"><span>A</span></h1>
+    <h1 id="test2"><span>A</span></h1>
+    <h1 id="test3"><span>A</span></h1>
+    <h1 id="test4"><span>A</span></h1>
+
+    <script>
+        $(function(){
+            //part1
+            //추가할 아이템 : <span class='added'>B</span>
+            const b = `<span class='added'>B</span>`;
+            // $("#test1").append(b);
+            // $("#test2").prepend(b);
+            // $("#test3").before(b);
+            // $("#test4").after(b);
+
+            //part2
+            $(b).appendTo("#test1");
+            $(b).prependTo("#test2");
+            $(b).insertBefore("#test3");
+            $(b).insertAfter("#test4")
+        })
+    </script>
+
+    <hr>
+
+    <h3>* 요소객체 복제 메소드</h3>
+    <p>
+        const 변수 = $("선택자").clone(true/false) 
+        : 선택된 요소를 복제해서 반환해주는 메소드 <br>
+        => true / false : 해당 선택된 요소에 걸려있는 이벤트
+        까지 포함해서 복사할꺼진 여부를 지정
+        (true일시 이벤트 포함하여 복사)
+    </p>
+
+    <button id="clone">복제</button>
+
+    <div id="clone-test">
+        <!--
+            복제할 요소
+        -->
+        <div id="item1" class="item">
+            <span>안녕</span>
+        </div>
+    </div>
+
+    <hr>
+    <!-- 복제한 결과를 넣을 공간-->
+    <div id="clone-result">
+
+    </div>
+
+    <script>
+        // 복제버튼 클릭시 item요소를 복사해서 clone-result에
+        // 붙여넣기
+        $(function(){
+            $("#clone").click(()=>{
+                //const copy = $("#item1").clone(); //
+                //$("#clone-result").append(copy);
+                $("#item1").clone(true).appendTo("#clone-result");
+            })
+    
+            $('.item').hover(function(){
+                $(this).addClass("lime");
+            },function(){
+                $(this).removeClass('lime');
+            })
+        })
+    </script>
+
+    <hr>
+    <hr><hr><hr>
+
+    <h3>* 요소 객체 제거 및 잘라내기 메서드</h3>
+
+    <p>
+        $("선택자").empty() :선택된 요소의 모든 "하위"요소들을 제거 <br>
+
+        const 변수 = $("선택자").remove()/detach() : 선택된요소 제거후 반환  <br>
+        - .remove() : 잘라내기 후 잘라낸 요소의 이벤트는 가져오지 않음 <br>
+        - .detach() : 잘라내기 후 잘라낸 요소의 이벤트도 함께 가져옴 <br>
+    </p>
+
+    <button id="empty">empty</button>
+    <button id="remove">remove</button>
+    <button id="detach">detach</button>
+
+    <div id="remove-test" style="border: 3px solid red; width: 110px; height: 110px;">
+        <!-- 제거할 요소 -->
+        <div id="item2" class="item"><span>안녕</span></div>
+    </div>
+    
+    <hr>
+
+    <!-- 잘라내기후 붙여넣기를 할 공간-->
+    <div id="remove-result" style="border:3px dashed blue; width: 110px; height: 110px;">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#empty").click(function(){
+                $("#remove-test").empty();
+            })
+            $("#remove").click(function(){
+                $("#item2").remove().appendTo("#remove-result");
+            })
+            $("#detach").click(function(){
+                $("#item2").detach().appendTo("#remove-result");
+            })
+        })
+    </script>
+
+    <!-- 응용문제
+        복제버튼 클릭시 현재 버튼의 부모요소인 div를 복제시켜서 result에 붙여넣기
+        삭제버튼 클릭시 현재 버튼의 부모요소인 div를 삭제시키기
+
+        item요소가 하나일때는 삭제버튼눌러도 삭제가 안되게
+    -->
+
+    <div id="test" class="item">
+        <button class="copy">복제</button>
+        <button class="delete">삭제</button>
+    </div>
+
+    <div id="result">
+
+    </div>
+
+    <script>
+        $(function(){
+            $(".copy").click(function(){
+                const copy = $(this).parent().clone(true);
+                $("#result").append(copy);
+            });
+
+            $(".delete").click(function(){
+                if($('.delete').length > 1)
+                    $(this).parent().remove();
+            })
+        })
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    
+</body>
+</html>
