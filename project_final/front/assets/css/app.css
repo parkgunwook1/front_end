@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+button,
+input,
+textarea,
+select,
+span,
+small {
+  font-family: "Roboto", sans-serif;
+}
+
+.section-content {
+  padding: 4rem 0;
+}
+
+.shadow-box {
+  transition: 0.5s ease-in;
+}
+.shadow-box:hover {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+#header #navTop .socials a img {
+  border-radius: 0.75rem;
+}
+#header #navPrimary {
+  background-color: #000000;
+}
+#header #navPrimary .offcanvas {
+  width: 300px !important;
+}
+#header #navPrimary .offcanvas .mobile-menu a {
+  font-size: 1.1rem !important;
+}
+#header #navPrimary .offcanvas .mobile-menu a.active {
+  font-weight: bold !important;
+  color: #0e2d16;
+}
+#header #navPrimary .offcanvas .mobile-menu li {
+  padding-left: 0.75rem;
+  line-height: 1.75;
+}
+
+#frontCarousel {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-radius: 1rem;
+}
+#frontCarousel .carousel-inner {
+  border-radius: 1rem;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+#frontCarousel .carousel-inner .carousel-item {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+#frontCarousel .carousel-inner .carousel-item .carousel-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+#frontPrograms {
+  background-color: white;
+}
+#frontPrograms .program-item a {
+  color: #0e2d16;
+}
+#frontPrograms .program-item a img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+#frontPrograms .program-item a p {
+  font-size: 1.1rem;
+}
+
+#frontPrograms1 {
+  background-color: white;
+}
+#frontPrograms1 .program-item1 a {
+  color: #0e2d16;
+}
+#frontPrograms1 .program-item1 a img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+#frontPrograms1 .program-item1 a p {
+  font-size: 1.1rem;
+}
+
+#frontLatest {
+  background-color: white;
+}
+#frontLatest .latest-posts-header,
+#frontLatest .latest-reviews-header {
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #000000;
+}
+#frontLatest .latest-posts-header h4,
+#frontLatest .latest-reviews-header h4 {
+  color: #000000;
+}
+#frontLatest .latest-posts .latest-post,
+#frontLatest .latest-posts .latest-review,
+#frontLatest .latest-reviews .latest-post,
+#frontLatest .latest-reviews .latest-review {
+  margin-bottom: 1rem;
+  border: 0;
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+#frontLatest .latest-posts .latest-post-featured,
+#frontLatest .latest-posts .latest-review-featured,
+#frontLatest .latest-reviews .latest-post-featured,
+#frontLatest .latest-reviews .latest-review-featured {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 13rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+#frontLatest .latest-posts .latest-post-text a,
+#frontLatest .latest-posts .latest-review-text a,
+#frontLatest .latest-reviews .latest-post-text a,
+#frontLatest .latest-reviews .latest-review-text a {
+  text-decoration: none;
+  color: #0d47a1;
+}
+#frontLatest .latest-posts .latest-post-text a:hover,
+#frontLatest .latest-posts .latest-review-text a:hover,
+#frontLatest .latest-reviews .latest-post-text a:hover,
+#frontLatest .latest-reviews .latest-review-text a:hover {
+  color: #2674ee;
+}
+#frontLatest .latest-posts .latest-post-text p,
+#frontLatest .latest-posts .latest-review-text p,
+#frontLatest .latest-reviews .latest-post-text p,
+#frontLatest .latest-reviews .latest-review-text p {
+  font-size: 1.1rem;
+  font-weight: lighter;
+}
+
+#itempage1 {
+  background-color: white;
+}
+#itempage1 .program-item a {
+  color: #0e2d16;
+}
+#itempage1 .program-item a img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+#itempage1 .program-item a p {
+  font-size: 1.1rem;
+}
+
+.pagination {
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+.pagination .page-item .page-link {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.pagination .page-item active .page-link {
+  z-index: 1;
+  color: #555;
+  font-weight: bold;
+  background-color: #f1f1f1;
+  border-color: #ccc;
+}
+.pagination .page-link:focus, .pagination .page-link:hover {
+  color: #000;
+  background-color: #fafafa;
+  border-color: #ccc;
+}
+
+.basket {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #FFFFFF;
+}
+.basket .row .col-2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.article .article-outline {
+  margin: 20%;
+}
+.article .article-outline .card {
+  max-width: 20rem;
+  margin: none;
+  padding: none;
+}/*# sourceMappingURL=app.css.map */
