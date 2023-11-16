@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intro | My 3rd website</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css"
-    integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-    integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css" integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-
 <body class="intro">
   <a id="scrolltoTop" class="shadow-xl">Top</a>
   <div class="modal fade" id="navbarModalContent" aria-labelledby="navbarModalContent" aria-hidden="true">
@@ -37,39 +28,40 @@
             <li class="active">
               <a href="intro.html" class="current">Intro</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="myinfo.html">MY</a>
-            </li>
-            <a href="page.html">Page 1</a>
+            <li>
+              <a href="#">Page</a>
+              <ul class="list-unstyled mobile-submenu">
+                <li>
+                  <a href="page.html">Page 1</a>
+                </li>
+                <li>
+                  <a href="page.html">Page 2</a>
+                </li>
+                <li>
+                  <a href="page.html">Page 3</a>
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="page.html">Page 2</a>
+              <a href="blog.html">Blog</a>
             </li>
             <li>
-              <a href="page.html">Page 3</a>
+              <a href="#">Project</a>
+              <ul class="list-unstyled mobile-submenu">
+                <li>
+                  <a href="project.html">Project 1</a>
+                </li>
+                <li>
+                  <a href="project.html">Project 2</a>
+                </li>
+                <li>
+                  <a href="project.html">Project 3</a>
+                </li>
+              </ul>
             </li>
-          </ul>
-          </li>
-          <li>
-            <a href="blog.html">Blog</a>
-          </li>
-          <li>
-            <a href="#">Project</a>
-            <ul class="list-unstyled mobile-submenu">
-              <li>
-                <a href="project.html">Project 1</a>
-              </li>
-              <li>
-                <a href="project.html">Project 2</a>
-              </li>
-              <li>
-                <a href="project.html">Project 3</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="reservation.html">Reservation</a>
-          </li>
+            <li>
+              <a href="reservation.html">Reservation</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -79,8 +71,7 @@
   <!-- Navbar -->
   <nav id="primary-navbar" class="navbar navbar-expand-lg navbar-transparent fixed-top rgba-black-light">
     <div class="container-xxl">
-      <a class="navbar-brand text-white" href="index.html" data-bs-toggle="tooltip" data-bs-placement="bottom"
-        title="This is my Website">
+      <a class="navbar-brand text-white" href="index.html" data-bs-toggle="tooltip" data-bs-placement="bottom" title="This is my Website">
         <img src="assets/images/company-logo1.png" alt="My Logo" width="60px"> FPP
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#navbarModalContent">
@@ -89,27 +80,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="index.html"><i class="fa fa-home fa-lg"></i>
-              <p>Home</p>
-            </a>
+            <a class="nav-link" href="index.html"><i class="fa fa-home fa-lg"></i><p>Home</p></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="intro.html"><i class="fa fa-info fa-lg"></i>
-              <p>Intro</p>
-            </a>
+            <a class="nav-link active" aria-current="page" href="intro.html"><i class="fa fa-info fa-lg"></i><p>Intro</p></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="fas fa-book-open fa-lg"></i>
-              <p>Category</p>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-book-open fa-lg"></i><p>Category</p>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="itempage.html">New</a></li>
               <li><a class="dropdown-item" href="itempage.html">Sale</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="itempage.html">Outer</a></li>
               <li><a class="dropdown-item" href="itempage.html">Shirts</a></li>
               <li><a class="dropdown-item" href="itempage.html">Pants</a></li>
@@ -117,9 +100,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="reservation.html" class="nav-link"><i class="fa fa-desktop fa-lg"></i>
-              <p>MyInfo</p>
-            </a>
+            <a href="reservation.html" class="nav-link"><i class="fa fa-desktop fa-lg"></i><p>MyInfo</p></a>
           </li>
         </ul>
       </div>
@@ -127,20 +108,18 @@
   </nav>
 
   <!-- Top Banner -->
-  <section id="topBanner" class="banner mb-0 wow fadeInDown"
-    style="background-image: url('assets/images/topbanner.jpg');">
+  <section id="topBanner" class="banner mb-0 wow fadeInDown" style="background-image: url('assets/images/topbanner.jpg');">
     <div class="section-content w-75">
       <div class="container text-white">
-        <h1 class="display-4">Introduction</h1>
+        
         <p class="lead">쇼핑몰 프로젝트를 진행중인 팀원들을 소개합니다.</p>
         <div id="banner-collape" class="collapse">
           <br>
           <hr class="hr-white my-4">
-          <p>- ceo park </p>
+          <p>ceo 미스터 박</p>
         </div>
         <p class="lead">
-          <button class="btn btn-outline-light btn-lg" data-bs-target="#banner-collape" data-bs-toggle="collapse"
-            type="button">Learn more</button>
+          <button class="btn btn-outline-light btn-lg" data-bs-target="#banner-collape" data-bs-toggle="collapse" type="button">Learn more</button>
         </p>
       </div>
     </div>
@@ -157,16 +136,12 @@
           <div class="col-md-6 wow fadeInRight">
             <h1>Gun Wook Park <small class="text-warning text-weight-bold">CEO</small></h1>
             <br>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam magnam perspiciatis iusto facilis non
-              animi, aspernatur eaque repellendus laborum ducimus odit! Pariatur vel libero quidem reprehenderit,
-              deserunt cumque voluptatibus corrupti.</p>
+            <p>- 2004년 무신스 플랫폼 컨설팅</p> 
+            <p>- 2007년 kreamas 플랫폼 개발</p>
+            <p>- 2010년 에이프리 인수합병</p>
+            <p>- 2023년 kth정보교육원 인수 및 합병</p>
             <hr class="mt-4">
-            <div class="mt-5 wow fadeInRight ratio ratio-16x9">
-              <iframe width="100%" height="315" src="https://www.youtube.com/embed/IAR2sYyMuiE"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-            </div>
+
           </div>
         </div>
       </div>
@@ -178,22 +153,17 @@
     <div class="container">
       <div class="row brand-content rgba-black-light p-3 wow bounceIn">
         <div class="col-8 offset-2 text-center text-white my-5">
-          <h3>Our History, and ...</h3>
-          <p class="lead my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus itaque id aliquid,
-            praesentium facilis nulla nostrum quisquam, repudiandae cumque tempora libero. Pariatur cupiditate animi
-            sint inventore, earum quasi. Eius, magni!</p>
+          <h3>우리의 역사, 그리고 ...</h3>
+          <p class="lead my-4">고객이 구매하는 과정에 주의를 기울이는 것이 매우 중요합니다. 그렇다면 현재 우리는 그 누구도 이시대에서 자유롭다는 것이다. FPP는 옷에 진심이고, 구매자에게 편리함을 주어 혁명을 이끕니다...  NICE</p>
         </div>
         <div class="col-md-6 mb-5 text-white">
-          <h4 class="mb-4">Brief History</h4>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos quibusdam non corrupti nulla, culpa nostrum.
-            Voluptatem quis voluptas cumque, eos asperiores neque cupiditate corporis quod itaque ad voluptate,
-            perferendis nemo.</p>
+          <h4 class="mb-4">회사의 우수</h4>
+          <p>대표이사 임도원은 패션계의 선두주자로, 독창적인 스타일과 혁신적인 트렌드로 업계를 선도하며 글로벌한 패션 문화를 조성하고 있습니다. 그녀의 정성은 끊임없는 창의력과 디자인에 담겨, 새로운 시각과 경험을 제공하여 패션 산업에 새로운 활력을 불어넣고 있습니다.</p>
         </div>
         <div class="col-md-6 mb-5 text-white">
-          <h4 class="mb-4">My career</h4>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos quibusdam non corrupti nulla, culpa nostrum.
-            Voluptatem quis voluptas cumque, eos asperiores neque cupiditate corporis quod itaque ad voluptate,
-            perferendis nemo.</p>
+          <h4 class="mb-4">경력</h4>
+          <p>
+박건욱 CEO는 2004년에 무신스 플랫폼 컨설팅에서 경력을 시작하였으며, 2007년에는 Kreamas 플랫폼을 개발하였습니다. 이어 2010년에는 에이프리를 인수하고 합병하였고, 2023년에는 KTH정보교육원을 인수하고 합병하여 다양한 경험을 쌓아왔습니다.</p>
         </div>
       </div>
     </div>
@@ -208,45 +178,37 @@
             <h3 class="mb-5">About us</h3>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="team-tab" data-bs-toggle="tab" data-bs-target="#team" type="button"
-                  role="tab" aria-controls="team" aria-selected="true">Our team</button>
+                <button class="nav-link active" id="team-tab" data-bs-toggle="tab" data-bs-target="#team" type="button" role="tab" aria-controls="team" aria-selected="true">Our team</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos" type="button"
-                  role="tab" aria-controls="photos" aria-selected="false">Photos</button>
+                <button class="nav-link" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos" type="button" role="tab" aria-controls="photos" aria-selected="false">Photos</button>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="team" role="tabpanel" aria-labelledby="team-tab">
                 <img src="assets/images/team.jpg" alt="" class="img-fluid shadow-xl my-5 wow slideInLeft">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa porro optio dicta nemo, voluptatum
-                  ullam repellat dolorem omnis fugiat iure architecto deleniti in. Corporis fuga quis molestiae nostrum
-                  nulla ex.</p>
+                <p>패션업계에서는 상대방에게 제품을 많이 판매하는 것 뿐만 아니라 서로간의 파트너쉽과 협력이 중요합니다. 존중과 신뢰는 이 업계에서 핵심 가치로 여겨지며, 상호 협력을 통해 더 나은 패션 커뮤니티를 구축하는 데 중점이 둬져야 합니다..</p>
               </div>
               <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photos-tab">
                 <div class="image-lightbox my-5">
                   <div class="row row-cols-2">
                     <div class="col my-4">
-                      <a href="assets/images/photo1.jpg" data-lightbox="LightBox" data-title="Title1"
-                        data-alt="title-1">
-                        <img src="assets/images/photo1.jpg" alt="title-1" class="img-fluid shadow-xl">
+                      <a href="assets/images/slide2.jpg" data-lightbox="LightBox" data-title="Title1" data-alt="title-1">
+                        <img src="assets/images/slide2.jpg" alt="title-1" class="img-fluid shadow-xl">
                       </a>
                     </div>
                     <div class="col my-4">
-                      <a href="assets/images/photo2.jpg" data-lightbox="LightBox" data-title="Title2"
-                        data-alt="title-2">
-                        <img src="assets/images/photo2.jpg" alt="title-2" class="img-fluid shadow-xl">
+                      <a href="assets/images/myphoto.jpg" data-lightbox="LightBox" data-title="Title2" data-alt="title-2">
+                        <img src="assets/images/myphoto.jpg" alt="title-2" class="img-fluid shadow-xl">
                       </a>
                     </div>
                     <div class="col my-4">
-                      <a href="assets/images/photo3.jpg" data-lightbox="LightBox" data-title="Title3"
-                        data-alt="title-3">
-                        <img src="assets/images/photo3.jpg" alt="title-3" class="img-fluid shadow-xl">
+                      <a href="assets/images/img2.jpg" data-lightbox="LightBox" data-title="Title3" data-alt="title-3">
+                        <img src="assets/images/img2.jpg" alt="title-3" class="img-fluid shadow-xl">
                       </a>
                     </div>
                     <div class="col my-4">
-                      <a href="assets/images/photo4.jpg" data-lightbox="LightBox" data-title="Title4"
-                        data-alt="title-4">
+                      <a href="assets/images/photo4.jpg" data-lightbox="LightBox" data-title="Title4" data-alt="title-4">
                         <img src="assets/images/photo4.jpg" alt="title-4" class="img-fluid shadow-xl">
                       </a>
                     </div>
@@ -261,52 +223,37 @@
               <div class="accordion accordion-flush" id="accordionFlushFaq">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collpaseOne">
-                      First
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collpaseOne">
+                      First - 품질에 대한 헌신
                     </button>
                   </h2>
-                  <div id="flush-collapseOne" class="accordion-collapse collapse show"
-                    aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushFaq">
+                  <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushFaq">
                     <div class="accordion-body">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit illum ipsa laborum unde saepe
-                      obcaecati distinctio magnam modi deleniti eligendi architecto velit possimus natus omnis maiores
-                      ullam, voluptas voluptates, voluptatibus perspiciatis quisquam voluptatum. Voluptates molestias
-                      possimus dicta? Magni, officiis ipsum?
+                      뛰어남에 대한 헌신은 우리의 핵심 가치입니다. 디자인부터 생산까지 모든 단계에서 우리는 품질에 중점을 두어 제품의 내구성을 확보하고 고객들에게 우수한 제품을 전달합니다.
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collpased" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collpaseTwo">
-                      Second
+                    <button class="accordion-button collpased" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collpaseTwo">
+                      Second - 고객 중심적 접근
                     </button>
                   </h2>
-                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                    data-bs-parent="#accordionFlushFaq">
+                  <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushFaq">
                     <div class="accordion-body">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit illum ipsa laborum unde saepe
-                      obcaecati distinctio magnam modi deleniti eligendi architecto velit possimus natus omnis maiores
-                      ullam, voluptas voluptates, voluptatibus perspiciatis quisquam voluptatum. Voluptates molestias
-                      possimus dicta? Magni, officiis ipsum?
+                      고객을 최우선에 두고, 우리는 기대치를 뛰어넘기 위해 노력합니다. 맞춤 서비스, 투명한 소통, 지속적인 개선을 통해 거래를 초월한 지속적인 관계를 구축하는 것이 목표입니다.
                     </div>
                   </div>
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collpased" type="button" data-bs-toggle="collapse"
-                      data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collpaseThree">
-                      Thrid
+                    <button class="accordion-button collpased" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collpaseThree">
+                      Thrid - 지속 가능한 혁신
                     </button>
                   </h2>
-                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-                    data-bs-parent="#accordionFlushFaq">
+                  <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushFaq">
                     <div class="accordion-body">
-                      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit illum ipsa laborum unde saepe
-                      obcaecati distinctio magnam modi deleniti eligendi architecto velit possimus natus omnis maiores
-                      ullam, voluptas voluptates, voluptatibus perspiciatis quisquam voluptatum. Voluptates molestias
-                      possimus dicta? Magni, officiis ipsum?
+                      친환경 미래에 헌신하여 우리는 지속 가능한 실천을 채택합니다. 친환경 소재부터 윤리적인 원료 조달까지, 우리는 환경을 고려한 혁신을 통해 책임감 있고 미래지향적인 패션을 지향합니다.
                     </div>
                   </div>
                 </div>
@@ -328,18 +275,24 @@
             <a href="index.html" class="text-warning">
               <h5>Fashion People</h5>
             </a>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
-              optio at hic itaque nulla sed.</p>
+            <p>
+               <strong>CEO:</strong>박건욱 <br>
+              <strong>대표이사:</strong> 임도원 <br>
+              <strong>tel:</strong>070-1234-5678<br />
+              <strong>Business no:</strong>010-3694-5500<br />
+              <strong>mail:</strong> pkw2587@gmail.com<br />
+              <strong>address:</strong>서울특별시 강남구 역삼동 금산빌딩 2층 FPP
+            </p>
           </div>
           <div class="col-md-2 mb-4 d-none d-md-block">
-            <h5>WHAT</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
-              optio at hic itaque nulla sed.</p>
+            <h4>C/S CENTER</h4>
+            <p>010-3694-5500</p>
+            <p>월-금 AM 10:00 - PM 18:00</p>
+            <p>토-일 AM 10:00 - PM 14:00</p>
           </div>
           <div class="col-md-2 mb-4 d-none d-md-block">
-            <h5>WHERE</h5>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
-              optio at hic itaque nulla sed.</p>
+            <h4>GUIDE</h4>
+            <p>이용약관<br />개인정보 처리방침</p>
           </div>
           <div class="col-md-4 mb-4">
             <div class="card card-body bg-dark">
@@ -353,26 +306,26 @@
                     <div>
                       <p class="lead">
                         <a href="tel:02-111-1111" class="text-white">
-                          <strong>02-111-1111</strong>
+                          <strong>010-3694-5500</strong>
                         </a>
                       </p>
                     </div>
                   </div>
                 </div>
-                <hr class="hr-white mt-0 mb-3">
+                <hr class="hr-white mt-0 mb-3" />
                 <div class="text-white">
                   <span>
                     <i class="fa fa-envelope fa-lg me-3"></i>
                     <a href="mailto:jdoe@email.com" class="text-white">
-                      <strong>jdoe@email.com</strong>
+                      <strong>pkw85428@naver.com</strong>
                     </a>
                   </span>
                 </div>
-                <br>
+                <br />
                 <div class="text-white">
                   <span>
                     <i class="fa fa-home fa-lg me-3"></i>
-                    <strong>111-11 Gil-dong, Jung-g, Seoul Korea</strong>
+                    <strong>강남구 테헤란로 14길6, Jung-g, Seoul Korea</strong>
                   </span>
                 </div>
               </div>
@@ -380,20 +333,20 @@
           </div>
         </div>
       </div>
-      <hr class="my-5">
+      <hr class="my-5" />
       <ul class="social-icons list-unstyled d-flex justify-content-center">
         <li class="mx-2">
-          <a href="#" class="twitter-link">
+          <a href="" class="twitter-link">
             <i class="fab fa-twitter fa-2x"></i>
           </a>
         </li>
         <li class="mx-2">
-          <a href="#" class="facebook-link">
+          <a href="" class="facebook-link">
             <i class="fab fa-facebook-square fa-2x"></i>
           </a>
         </li>
         <li class="mx-2">
-          <a href="#" class="youtube-link">
+          <a href="" class="youtube-link">
             <i class="fab fa-youtube fa-2x"></i>
           </a>
         </li>
@@ -401,22 +354,16 @@
       <div class="copyright text-center text-muted mt-4">
         Copyright &copy;
         <script>
-          document.write(new Date().getFullYear())
-        </script> Brand Shop. All rights Reserved.
+          document.write(new Date().getFullYear());
+        </script>
+        Brand Shop. All rights Reserved.
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
-    integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="module" src="assets/js/main.js"></script>
 </body>
-
 </html>
