@@ -39,6 +39,35 @@
         })
     </script>
 
+    <div style="width: 100px; height: 100px; background-color: red; opacity: 0.5;">
+
+    </div>
+
+    <h3>* fadeIn(), fadeOut(), fadeToggle() </h3>
+    <p>
+        선택된 요소가 점점 투명해지면서 사라지고 점점 선명해지면서 보여지게하는 메소드
+    </p>
+
+    <button id="fadeOut">숨기기</button>
+    <button id="fadeIn">보여주기</button>
+    <button id="fadeToggle">토글</button>
+
+    <img id='peng' src="">
+
+    <script>
+        $(function(){
+
+            $("#fadeOut").click(function(){
+                $("#peng").fadeOut(2000);
+            })
+            $("#fadeIn").click(function(){
+                $("#peng").fadeIn(2000);
+            })
+            $("#fadeToggle").click(function(){
+                $("#peng").fadeToggle(1000);
+        })
+    })
+    </script>
 
 
 

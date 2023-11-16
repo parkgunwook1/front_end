@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        div{
+            background-color: beige;
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 10px;
+            border: 1px solid yellow;
+            cursor: pointer;
+        }
+        p{
+            border: 1px solid lightgray;
+            width: 300px;
+            height: 100px;
+            margin-top: 5px;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>* slideDown()와 slideUp</h3>
+
+    <div>Q- 반품 언제까지 가능한가요?</div>
+    <p>
+        A. 확인후 답변드리겠습니다.
+    </p>
+
+    <div>Q. 상품 위치를 알고 싶습니다.</div>
+    <p>
+        A. 배송조회서비스를 이용하세요
+    </p>
+
+    <div>Q. 300사이즈도 있나요?</div>
+    <p>
+        A. 네 있습니다. 
+    </p>
+    <div> Q. 판매자와 연락이 안되면 어떻하나요?</div>
+
+    <p>
+        A. 경찰서에 신고하세요
+    </p>
+
+    <script>
+        $(function(){
+            $("div").click(function(){
+                // $(window.event.target)
+                // $(e.target)
+                // $(this).next() // 현재 클릭이벤트가 발생한 div 요소 바로 다음 뒤에있는 요소
+
+                const $p = $(this).next(); // jquery방식으로 선택된 요소를 변수에 담아둘때는 변수명 $를 붙이곤한다.
+                //css메소드 또한 속성명만 매개변수로 넘겨주면, 해당 속성에 저장된 값을 반환해준다.
+                // if($p.css("display") == "none"){
+
+                //     //기존에 열려있는 p는 닫아주기
+                //     $p.siblings("p").slideUp();
+
+                //     //현재 p태그가 none속성인 경우 보여지게금
+                //     $p.slideDown();
+                // }else {
+                //     //사라지게끔
+                //     $p.slideUp();
+                // }
+                $p.siblings("p").slideUp();
+                $p.slideToggle(); // on/off
+            })
+        })
+    </script>
+    
+</body>
+</html>
