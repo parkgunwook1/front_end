@@ -1,122 +1,69 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="author" />
-    <title>로그인 / 회원가입 폼 템플릿</title>
-    <link rel="stylesheet" href="/test.css" />
-  </head>
 
-  <body>
-    <main>
-      <div class="wrap">
-        <div class="form-wrap">
-          <div class="button-wrap">
-            <div id="btn"></div>
-            <button
-              type="button"
-              class="togglebtn"
-              style="color: white"
-              onclick="login()"
-            >
-              LOG IN
-            </button>
-            <button
-              type="button"
-              class="togglebtn"
-              style="color: white"
-              onclick="register()"
-            >
-              REGISTER
-            </button>
-          </div>
-          <div class="social-icons">
-            <a href="index.html" class="log-home">
-              <p class="mb-0">HOME</p>
-            </a>
-          </div>
-          <form id="login" action="" class="input-group">
-            <input
-              type="text"
-              class="input-field"
-              placeholder="User Id"
-              id="userID"
-              style="color: white"
-            />
-            <input
-              type="password"
-              class="input-field"
-              placeholder="Enter Password"
-              id="password"
-              style="color: white"
-            />
-            <input
-              type="button"
-              class="submit"
-              value="Login"
-              style="color: white"
-              id="signin"
-            />
-          </form>
-          <form id="register" action="" class="input-group">
-            <input
-              type="text"
-              class="input-field"
-              placeholder="User Id"
-              id="userID"
-              style="color: white"
-            />
-            <input
-              type="password"
-              class="input-field"
-              placeholder="Password"
-              id="password"
-              style="color: white"
-            />
-            <input
-              type="text"
-              class="input-field"
-              placeholder="Nick name"
-              id="nickname"
-              style="color: white"
-            />
-            <input
-              type="button"
-              value="회원가입"
-              class="submit"
-              style="color: white"
-              id="signup"
-            />
-          </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="author" />
+  <title>로그인 / 회원가입 폼 템플릿</title>
+  <link rel="stylesheet" href="/test.css" />
+</head>
+
+<body>
+  <main>
+    <div class="wrap">
+      <div class="form-wrap">
+        <div class="button-wrap">
+          <div id="btn"></div>
+          <button type="button" class="togglebtn" style="color: white" onclick="login()">
+            LOG IN
+          </button>
+          <button type="button" class="togglebtn" style="color: white" onclick="register()">
+            REGISTER
+          </button>
         </div>
+        <div class="social-icons">
+          <a href="index.html" class="log-home">
+            <p class="mb-0">HOME</p>
+          </a>
+        </div>
+        <form id="login" action="" class="input-group">
+          <input type="text" class="input-field" placeholder="User Id" id="userID" style="color: white" />
+          <input type="password" class="input-field" placeholder="Enter Password" id="password" style="color: white" />
+          <input type="button" class="submit" value="Login" style="color: white" id="signin" />
+        </form>
+        <form id="register" action="" class="input-group">
+          <input type="text" class="input-field" placeholder="User Id" id="userID" style="color: white" />
+          <input type="password" class="input-field" placeholder="Password" id="password" style="color: white" />
+          <input type="text" class="input-field" placeholder="Nick name" id="nickname" style="color: white" />
+          <input type="button" value="회원가입" class="submit" style="color: white" id="signup" />
+        </form>
       </div>
-      <script>
-        var x = document.getElementById("login");
-        var y = document.getElementById("register");
-        var z = document.getElementById("btn");
-        function login() {
-          x.style.left = "50px";
-          y.style.left = "450px";
-          z.style.left = "0";
-        }
-        function register() {
-          x.style.left = "-400px";
-          y.style.left = "50px";
-          z.style.left = "110px";
-        }
-      </script>
-    </main>
+    </div>
+    <script>
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
+      function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+      }
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
+    </script>
+  </main>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
-      integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./js/url.js"></script>
-    <script src="./js/signin.js"></script>
-    <script src="./js/signup.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+    integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./js/url.js"></script>
+  <script src="./js/signin.js"></script>
+  <script src="./js/signup.js"></script>
+</body>
+
 </html>
