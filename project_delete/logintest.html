@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <h1>WebStorage</h1>
+
+    <!--
+        browser()에 사용자데이터를 저장하는 html5 표준 api
+
+        1. sessionStorage : 서버에 접속한 동안만 기록되고, 세션이 종료되면 데이터를 삭제
+
+        2. localStorage : 만료기간이 없이 삭제전까지 데이터가 기록됨
+
+        Cookie나, Session과 달리 서버로 데이터가 전송되지 않는다.
+    -->
+
+    <h2>로그인</h2>
+    <fieldset>
+        <legend>회원가입</legend>
+        <input type="text" id="ID1" placeholder="ID">
+        <input type="password" id="value1" placeholder="password">
+        <input type="button" value="실행" onclick="test1();">
+    </fieldset>
+
+    <script>
+        /*
+            key,value를 한쌍으로 localstorage객체제 저장하기
+            localStorage.setItem(key, value)함수
+        */
+        function test1(){
+            // localStorage.setItem("id",'박건욱')
+            // localStorage.setItem(key1.value, value1.value);
+
+            // obj[key] = value
+            localStorage[ID1.value] = value1.value; // 키값 중복안됨
+        }
+    </script>
+
+    <fieldset>
+        <legend>아이디 가져오기</legend>
+        <input type="search" id="ID2" placeholder="ID">
+        <input type="password" id="Value2" placeholder="password">
+        <input type="button" value="검색" onclick="test2();">
+    </fieldset>
+
+    <script>
+        const test2 = () => {
+            // getItem(key)
+            const id = localStorage.getItem(ID2.value)
+            const pass = localStorage.getItem(Value2.value)
+
+            if(id != null && pass != null) {
+            alert(`${ID2.id} : ${id} 님 반갑습니다. `)
+        }else {
+            alert("조회된 데이터가 없습니다. ")
+        }
+    }
+    </script>
+    
+    
+    <fieldset>
+        <legend>회원 삭제</legend>
+        <input type="search" id="ID3">
+        <input type="button" value="삭제" onclick="test3();">
+    </fieldset>
+
+    <script>
+        function test3(){
+            // key값에 해당하는 데이터를 삭제
+            localStorage.removeItem(ID3.value);
+
+            // clear() : 로컬스토리지에 저장된 모든 데이터를 삭제
+        }
+    </script>
+
+    <h2>객체 저장</h2>
+    <input type="button" value="실행" onclick="test4();">
+
+    <script>
+        function test4(){
+
+            //localStorage의 value은 모든 데이터를 string으로 저장한다.
+            //객체를 value으로 저장하고자할때는 toString 호출 결과를 저장한다.
+            // 객체의 기본 toString호출결과 : [object Object]
+            const user = {
+                id : 'mkm',
+                phone : '01089176474',
+                married : false,
+                age : 35,
+                toString : function(){
+                    return this.id + "," + this.phone + "," + this.married + ", " + this.age;
+                }
+            }
+            /* 
+                객체를 웹저장소에 저장시 항상 문자열형태로만 기록되기 때문에 객체형태의 데이터를 유지할 수가 없다.
+
+                해결방법 : 객체를 JSON형식으로 저장하기
+                JSON? JavaScript Object Notation의 약자로 값이나 객체를 다룰때 많이 사용하는 형식.
+                자바스크립트 객체를 문자열 형태의 객체로 변환하거나, 문자열형태의 자바스크립트객체를 다시 자바스크립트 객체로
+                변환시 사용되는 포맷이다.
+
+                특정 데이터를 주고받을때 , 전달하는 데이터를 JSON형태의 객체로 포장하고,
+                받아주는 서버측(JAVA 언어를 사용한다고 가정)에서는 JSON형식으로 포장된 객체를
+                JAVA언어의 객체로 파싱해서 사용
+            */
+            
+
+            // 자바스크립트객체를 JSON으로 바꿔주는 함수
+            // JSON.stringfy
+            const jsonStr = JSON.stringify(user);
+            console.log(jsonStr);
+            
+            localStorage.setItem('user', jsonStr);
+
+            const getUser = localStorage.getItem('user');
+            console.log(getUser); // [Object object] -> mkm , 0101234... -> {"id":"mkm","phone":"01089176474","married":false,"age":35}
+            console.log(typeof getUser); // 문자열이다.
+            
+            // JSON객체를 JavaScript객체로 변환
+            // JSON.parse
+            const anotherUser = JSON.parse(getUser);
+            console.log(anotherUser);
+            console.log(typeof anotherUser);
+        }
+    </script>
+
+    <h2>논리형으로의 형변환</h2>
+    <input type="button" value="실행" onclick="test5()">
+
+    <script>
+        /*
+           변수, 리터럴들이 boolean형으로 형변환 가능
+
+           값이 존재하는것은 true으로 치환 : 123, -100, 3.15, '안녀ㅠ', new Date(), [1], {}, h1..
+           겂이 존재하지 않는것은 false로 치환 : 0, 0.0, "", '' ,undefined, null, nan,... , []
+        */
+
+        const test5 = function(){
+            //true
+            console.log(Boolean(123));
+            console.log(Boolean(-123));
+            console.log(Boolean(1.23));
+            console.log(Boolean("1.23"));
+            console.log(Boolean (new Date()),Boolean ({}),Boolean ([1]),Boolean (key1));
+
+            //false
+            console.log(Boolean(0));
+            console.log(Boolean(0.0));
+            console.log(Boolean(""));
+            console.log(Boolean(undefined, Boolean(null), Boolean(Nan)))
+
+            //[]는 조건식에서 리터럴로 제시시 false
+            // Boolean함수로 확인시 true
+        }
+    </script>
+</body>
+</html>

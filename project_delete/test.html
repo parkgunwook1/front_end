@@ -1,72 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro | My 3rd website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css"
+    integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
+    integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    #topBanner h1.display-7,
+   #topBanner p.lead {
+  font-size: 10em; /* 원하는 크기로 조정하세요 */
+}
+
+  </style>
 </head>
-<body>
-    <input type="file" id="file-id">
-    <div id='img-box'>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const imageController = new ImageController();
 
-            const file = document.querySelector('#file-id'); //file-id라는 id를 file에 저장
-            const div = document.querySelector('#img-box'); //img-box라는 id를 div에 저장
+<body class="intro">
+  <a id="scrolltoTop" class="shadow-xl">Top</a>
+  <div class="modal fade" id="navbarModalContent" aria-labelledby="navbarModalContent" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="navbarModalContentLabel">My Website</h5>
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-lable="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-unstyled mobile-menu">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+            <li class="active">
+              <a href="intro.html" class="current">Intro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myinfo.html">MY</a>
+            </li>
+            <a href="page.html">Page 1</a>
+            </li>
+            <li>
+              <a href="page.html">Page 2</a>
+            </li>
+            <li>
+              <a href="page.html">Page 3</a>
+            </li>
+          </ul>
+          </li>
+          <li>
+            <a href="blog.html">Blog</a>
+          </li>
+          <li>
+            <a href="#">Project</a>
+            <ul class="list-unstyled mobile-submenu">
+              <li>
+                <a href="project.html">Project 1</a>
+              </li>
+              <li>
+                <a href="project.html">Project 2</a>
+              </li>
+              <li>
+                <a href="project.html">Project 3</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="reservation.html">Reservation</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            file.addEventListener('change', async (event) => { //file이라는 요소에 change타입의 이벤트가 발생핼을 때 
-                //const base64 = await imageController.toBase64(file.files[0]) ;
 
-                await imageController.fetchImage(div); //imageController의 fetchImage함수 실행 
-            });
-        })
 
-        class ImageController {
+  <!-- Top Banner -->
+  <section id="topBanner" class="banner mb-0 wow fadeInDown">
+    <div class="section-content w-75">
+      <div class="container text-black">
+        <h1 class="display-7">PRODUCT</h1>
+        <p class="lead"><mark>상세페이지</mark></p>
+        <div id="banner-collape" class="collapse">
+          <br>
+          <hr class="hr-white my-4">
 
-            async fetchImage(div) {
-                const response = await fetch('http://localhost:3000/products'); //reponse에 fetch('http://localhost:3000/products')
+        </div>
 
-                const datas = await response.json(); //datas에 response의 json메서드 대입?
-                
-                datas.forEach(data => {
-                    const minidiv = document.createElement('div');
-                    minidiv.append(data.name);
-                    minidiv.append(' ');
-                    minidiv.append(data.description);
-                    minidiv.append(' ');
-                    minidiv.append(data.stock);
-                    minidiv.append(' ');
-                    minidiv.append(data.price);
-                    minidiv.append(' ');
-                    minidiv.append(data.email);
-                    minidiv.append(' ');
-                    minidiv.append(data.role);
-                    minidiv.append(' ');
-                    minidiv.append(data.user_name);
-                    minidiv.append(' ');
-                    minidiv.append(data.category_name);
+      </div>
+    </div>
+  </section>
+  <!---->
 
-                    div.append(minidiv);
 
-                    data.images.forEach(element => {
-                        const image = document.createElement('img');
-                        image.src = URL.createObjectURL(new Blob([new Uint8Array(element.image_value.data)], { type: element.image_value.type }));
-                        div.append(image);
-                    });
-                })
-            }
+  <div class="row">
+    <div class="col-md-5">
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://dakuang.co.kr/web/product/big/20200326/6ff8accb97d58b3fa916ed260a4315f2.jpg"
+              class="d-block w-100 h-100" alt="..."> <!-- Modified: Added h-100 class -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://kdj191.cafe24.com/pt/pt5861/pt5861_01.jpg" class="d-block w-100 h-100" alt="..."> <!-- Modified: Added h-100 class -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://dakuang.co.kr/web/product/big/20200326/6ff8accb97d58b3fa916ed260a4315f2.jpg"
+              class="d-block w-100 h-100" alt="..."> <!-- Modified: Added h-100 class -->
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="card shadow-sm">
+          <div class="card-body">
+              <h5 class="card-title">남성용 터프가이 면 스판 카고바지 </h5>
+              <h5 class="card-title pt-3 pb-3 border-top">180,000원</h5>
+              <p class="card-text border-top pt-3 ">
+                  <span class="badge bg-dark">하의</span>
+                  <span class="badge bg-dark">카고바지</span>
+              </p>
+              <p class="card-text border-top pb-3">
+                  배송비 2,500원 | 도서산관(제주도) 배송비 추가 5,000원 | 택배배송 | 5일 이내 출고(주말,공휴일 제외)
+              </p>
+              <p class="card-text border-top pb-3">
+                  <div class="row">
+                      <div class="col-auto">
+                          <label class="col-form-label">구매수량</label>
+                      </div>
+                      <div class="col-auto">
+                          <div class="input-group ">
+                              <span class="input-group-text">-</span>
+                              <input type="text" class="form-control" style="width:40px;" value="1">
+                              <span class="input-group-text">+</span>
+                          </div>
+                      </div>
+                  </div>
+              </p>
+              <div class="row pt-3 pb-3 border-top">
+                  <div class="col-6">
+                      <h3>총 상품 금액</h3>
+                  </div>
+                  <div class="col-6" style="text-align: right;">
+                      <h3>180,000</h3>
+                  </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center border-top">
+                  <div class="col-6 d-grid p-1">
+                      <button type="button" class="btn btn-lg btn-dark">장바구니 담기</button>
+                  </div>
+                  <div class="col-6 d-grid p-1">
+                      <button type="button" class="btn btn-lg btn-danger">주문하기</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
 
-            toBase64(file) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = () => resolve(reader.result);
-                    reader.onerror = (error) => reject(error);
-                });
-            }
-        }
-</script>  
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer py-5">
+    <div class="section-content">
+      <div class="container wow fadeInUp">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <a href="index.html" class="text-warning">
+              <h5>Fashion People</h5>
+            </a>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
+              optio at hic itaque nulla sed.</p>
+          </div>
+          <div class="col-md-2 mb-4 d-none d-md-block">
+            <h5>WHAT</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
+              optio at hic itaque nulla sed.</p>
+          </div>
+          <div class="col-md-2 mb-4 d-none d-md-block">
+            <h5>WHERE</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit dicta magnam eum voluptates minus
+              optio at hic itaque nulla sed.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card card-body bg-dark">
+              <div class="card-text">
+                <div class="text-white d-flex justify-content-start">
+                  <i class="fas fa-phone fa-4x me-5"></i>
+                  <div class="icon-list-content">
+                    <div>
+                      <p class="my-0">Phone Call</p>
+                    </div>
+                    <div>
+                      <p class="lead">
+                        <a href="tel:02-111-1111" class="text-white">
+                          <strong>02-111-1111</strong>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <hr class="hr-white mt-0 mb-3">
+                <div class="text-white">
+                  <span>
+                    <i class="fa fa-envelope fa-lg me-3"></i>
+                    <a href="mailto:jdoe@email.com" class="text-white">
+                      <strong>jdoe@email.com</strong>
+                    </a>
+                  </span>
+                </div>
+                <br>
+                <div class="text-white">
+                  <span>
+                    <i class="fa fa-home fa-lg me-3"></i>
+                    <strong>111-11 Gil-dong, Jung-g, Seoul Korea</strong>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-5">
+      <ul class="social-icons list-unstyled d-flex justify-content-center">
+        <li class="mx-2">
+          <a href="#" class="twitter-link">
+            <i class="fab fa-twitter fa-2x"></i>
+          </a>
+        </li>
+        <li class="mx-2">
+          <a href="#" class="facebook-link">
+            <i class="fab fa-facebook-square fa-2x"></i>
+          </a>
+        </li>
+        <li class="mx-2">
+          <a href="#" class="youtube-link">
+            <i class="fab fa-youtube fa-2x"></i>
+          </a>
+        </li>
+      </ul>
+      <div class="copyright text-center text-muted mt-4">
+        Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear())
+        </script> Brand Shop. All rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"
+    integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
+    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
+
 </html>
