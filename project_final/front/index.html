@@ -4,23 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Internet Explorer 호환성 모드 최신화-->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 모바일 기기에서 화면 크기에 맞게 조정 뷰포트 설정-->
   <title>My Web</title>
-  <meta name="author" content="author" />
-  <link rel="stylesheet" href="./css/common.css" />
+  
+  <!-- 부트스크랩 5.22-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css"
-    integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-    integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./assets/css/app.css" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <meta name="author" content="author" />
+  <link rel="stylesheet" href="./css/common.css" />  <!-- 로그인/로그아웃-->
+  <link rel="stylesheet" href="./assets/css/app.css" /> <!--목차, 슬라이드-->
+  <link rel="stylesheet" href="assets/css/main.css" /> <!--폰트-->
 </head>
 
 <body>
@@ -40,34 +37,10 @@
               <div class="inner">
                 <div class="nav-container">
                   <div class="sign-container">
-                    <!-- 비회원 -->
+                    <!-- 로그인 -->
                     <div class="unsigned">
                       <a href="./login.html" class="LG">Login/SinUp</a>
                     </div>
-
-                    <!-- 회원 -->
-                    <div class="signed hidden">
-                      <div class="dropdown">
-                        <div class="dropdown-button">
-                          Welcome <span class="nickname"></span>님
-                        </div>
-                        <div class="dropdown-content">
-                          <button id="sign-out">로그아웃</button>
-                        </div>
-                        <div class="basket-button">
-                          <button id="basket" class="position-relative" onclick="location.href='basket.html'">
-                            basket
-                            <span
-                              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                              0+
-                              <span class="visually-hidden">unread messages</span>
-                            </span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </nav>
           </div>
@@ -105,12 +78,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#frontPrograms3">OUTER</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link btn btn-outline-secondary" href="#"><i class="fa fa-search"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="myinfo.html">MyInfo</a>
-            </li>
           </ul>
         </div>
 
@@ -142,27 +109,12 @@
                   </li>
                 </ul>
               </li>
-              <li>
-                <a href="#frontPrograms1" class="text-decoration-none link-dark">BEST</a>
               </li>
               <li>
-                <a href="#frontPrograms2" class="text-decoration-none link-dark">PANTS</a>
+                <a href="login.html" class="text-decoration-none link-dark">로그인</a>
               </li>
               <li>
-                <a href="#frontPrograms3" class="text-decoration-none link-dark">OUTER</a>
-              </li>
-              </li>
-              <li>
-                <a href="myinfo.html" class="text-decoration-none link-dark">MyInfo</a>
-              </li>
-              <li>
-                <a href="signin.html" class="text-decoration-none link-dark">로그인</a>
-              </li>
-              <li>
-                <a href="signup.html" class="text-decoration-none link-dark">회원가입</a>
-              </li>
-              <li>
-                <a href="#" class="btn btn-outline-secondary w-100"><i class="fa fa-search"></i></a>
+                <a href="sinup.htm" class="text-decoration-none link-dark">회원가입</a>
               </li>
             </ul>
           </div>
@@ -171,6 +123,7 @@
     </nav>
   </header>
 
+  <!--슬라이드-->
   <section id="frontCarousel" class="container-xxl carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#frontCarousel" data-bs-slide-to="0" class="active" aria-current="true"
@@ -231,7 +184,7 @@
                     <p class="mb-0">OUTER</p>
                     <img src="https://dakuang.co.kr/web/product/medium/202303/718c96d3906c6c8b8c8938eaea978828.jpg"
                       alt="Project 1" class="img-fluid" />
-                    <p class="mb-0">남성용 로얄고급 배색 <br>검정 후드집업</p>
+                    <p class="mb-0">남성용 로얄고급 배색 후드집업</p>
                   </a>
                 </div>
               </div>
@@ -425,7 +378,7 @@
                     <p class="mb-0">OUTER</p>
                     <img src="https://dakuang.co.kr/web/product/medium/202303/718c96d3906c6c8b8c8938eaea978828.jpg"
                       alt="Project 1" class="img-fluid" />
-                    <p class="mb-0">남성용 로얄고급 배색<br> 검정 후드집업</p>
+                    <p class="mb-0">남성용 로얄고급 배색 후드집업</p>
                   </a>
                 </div>
               </div>
@@ -446,7 +399,7 @@
                     <img src="https://dakuang.co.kr/web/product/medium/202304/71a1ad20db6c37ae38d5b5534e38033b.jpg"
                       alt="Project 3" class="img-fluid" />
                     <p class="mb-0">
-                      남성용 시그니쳐 데님 <br>청자켓
+                      시그니쳐 데님 청자켓
                     </p>
                   </a>
                 </div>
@@ -457,7 +410,7 @@
                     <p class="mb-0">OUTER</p>
                     <img src="https://dakuang.co.kr/web/product/medium/202306/7fa0ae22c66cc718d2b8dae9ba18f384.jpg"
                       alt="Project 4" class="img-fluid" />
-                    <p class="mb-0">남성용 매일 댄디 코튼 <br> 싱클자켓</p>
+                    <p class="mb-0">남성용 댄디 코튼 싱클자켓</p>
                   </a>
                 </div>
               </div>
@@ -467,7 +420,7 @@
                     <p class="mb-0">OUTER</p>
                     <img src="https://dakuang.co.kr/web/product/medium/202303/63178c285dd98a7d5a0ef1d1449fb235.jpg"
                       alt="Project 4" class="img-fluid" />
-                    <p class="mb-0">남성용 간절기 아우터<br> 남자 가디건</p>
+                    <p class="mb-0">남성용 베이지 가디건</p>
                   </a>
                 </div>
               </div>
@@ -477,7 +430,7 @@
                     <p class="mb-0">OUTER</p>
                     <img src="https://dakuang.co.kr/web/product/medium/202305/7ff5fdbf3c59d74823eb7d9e46315a71.jpg"
                       alt="Project 4" class="img-fluid" />
-                    <p class="mb-0">남성용 하이텐션 댄디 <br> 싱클자켓</p>
+                    <p class="mb-0">남성용 하이텐션 싱클자켓</p>
                   </a>
                 </div>
               </div>

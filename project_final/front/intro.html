@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!--IE 최신 버전 설정-->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--모바일 웹 페이지 뷰포트 설정-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intro | My 3rd website</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css" integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+  <!--LightBox 라이브러리 사용 => 이미지 배치 용이-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" integrity="sha512-ZKX+BvQihRJPA8CROKBhDNvoc2aDMOdAlcm7TUQY+35XYtrd3yh95QOOhsPDQY9QnKE0Wqag9y38OIgEvb88cA=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
+
 <body class="intro">
-  <a id="scrolltoTop" class="shadow-xl">Top</a>
+  
   <div class="modal fade" id="navbarModalContent" aria-labelledby="navbarModalContent" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
@@ -26,43 +31,8 @@
               <a href="index.html">Home</a>
             </li>
             <li class="active">
-              <a href="intro.html" class="current">Intro</a>
+              <a href="login.html" class="current">로그인</a>
             </li>
-            <li>
-              <a href="#">Page</a>
-              <ul class="list-unstyled mobile-submenu">
-                <li>
-                  <a href="page.html">Page 1</a>
-                </li>
-                <li>
-                  <a href="page.html">Page 2</a>
-                </li>
-                <li>
-                  <a href="page.html">Page 3</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="blog.html">Blog</a>
-            </li>
-            <li>
-              <a href="#">Project</a>
-              <ul class="list-unstyled mobile-submenu">
-                <li>
-                  <a href="project.html">Project 1</a>
-                </li>
-                <li>
-                  <a href="project.html">Project 2</a>
-                </li>
-                <li>
-                  <a href="project.html">Project 3</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="reservation.html">Reservation</a>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
@@ -83,11 +53,7 @@
             <a class="nav-link" href="index.html"><i class="fa fa-home fa-lg"></i><p>Home</p></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="intro.html"><i class="fa fa-info fa-lg"></i><p>Intro</p></a>
-          </li>
-         
-          <li class="nav-item">
-            <a href="myinfo.html" class="nav-link"><i class="fa fa-desktop fa-lg"></i><p>MyInfo</p></a>
+            <a href="login.html" class="nav-link"><i class="fa fa-desktop fa-lg"></i><p>로그인</p></a>
           </li>
         </ul>
       </div>
@@ -104,7 +70,6 @@
           <br>
           <hr class="hr-white my-4">
           <p><h3>ceo 박건욱</h3><br><h3>대표이사 임도원</h3><br><h3>총무 서강준</h3><br><h3>회계 안젤리나</h3></p>
-          
         </div>
         <p class="lead">
           <button class="btn btn-outline-light btn-lg" data-bs-target="#banner-collape" data-bs-toggle="collapse" type="button">Learn more</button>
@@ -349,7 +314,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js" integrity="sha512-6gudNVbNM/cVsLUMOb8g2b/RBqtQJ3aDfRFgU+5paeaCTtbYY/Dg00MzZq7r6RvJGI2KKtPBhjkHGTL/iOe21A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ 
   <script type="module" src="assets/js/main.js"></script>
 </body>
 </html>
