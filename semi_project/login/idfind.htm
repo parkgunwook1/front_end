@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이디/비밀번호 찾기</title>
+
+    <style>
+        /* Font Import */
+        @font-face {
+            font-family: 'SBAggroB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SBAggroM';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroM.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'SBAggroL';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroL.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* 전체 페이지 스타일 */
+        body {
+            font-family: 'SBAggroM', Arial, sans-serif;
+            /* 변경된 폰트 적용 */
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 페이지 헤더 스타일 */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* 메인 컨텐츠 스타일 */
+        main {
+            padding: 10px;
+            background-color: rgb(178, 161, 237);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: auto;
+            width: 30%;
+
+            /* 원하는 높이로 조절 */
+        }
+
+        /* 탭 컨테이너 스타일 */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eeeeeec9;
+            padding: 10px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        /* 탭 스타일 */
+        .tab {
+            text-decoration: none;
+            color: rgba(18, 17, 19, 0.89);
+            padding: 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: inline-block;
+            font-size: 25px;
+        }
+
+        /* 활성화된 탭 스타일 */
+        .tab.active {
+            background-color: rgba(193, 193, 248, 0.961);
+            color: rgba(120, 97, 246, 0.899);
+        }
+
+        /* 탭 사이 구분 선 스타일 */
+        .divider {
+            margin: 0 10px;
+            display: inline-block;
+            border-right: 1px solid #ccc;
+            height: 100%;
+        }
+
+        /* 마지막 구분 선 제거 스타일 */
+        .divider:last-child {
+            border: none;
+        }
+
+        /* 컨텐츠 영역 스타일 */
+        .content {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        /* 활성화된 컨텐츠 영역 스타일 */
+        .content.active {
+            display: block;
+        }
+
+        /* 폼 그룹 스타일 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* 라벨 스타일 */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* 입력 필드 스타일 */
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* 버튼 스타일 */
+        button {
+            background-color: rgba(141, 133, 210, 0.557);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* 버튼 호버 스타일 */
+        button:hover {
+            background-color: #95adef;
+        }
+
+        /* 구분 선 스타일 */
+        .divider {
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            /* 모달의 너비 */
+            height: 600px;
+            /* 모달의 높이 */
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 85%;
+            border-radius: 8px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <h1>헤더</h1>
+    </header>
+
+    <br>
+    <br>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main>
+
+        <!-- 탭 컨테이너 -->
+        <div class="tab-container">
+            <a href="#" class="tab active id" onclick="showContent('id')">아이디 찾기</a>
+            <div class="divider"></div>
+            <a href="#" class="tab password" onclick="showContent('password')">비밀번호 찾기</a>
+        </div>
+
+        <!-- 아이디 찾기 컨텐츠 -->
+        <div id="idContent" class="content active">
+            <div class="form-group">
+                <label for="name">이름</label>
+                <input type="text" id="name">
+            </div>
+            <div class="form-group">
+                <label for="email">이메일 주소</label>
+                <input type="email" id="email">
+                <button onclick="sendVerificationCode('id')">인증번호 받기</button>
+            </div>
+            <div class="form-group">
+                <label for="verificationCode">인증번호 입력</label>
+                <input type="text" id="verificationCode">
+                <button onclick="nextStep('id')">다음</button>
+            </div>
+
+        </div>
+
+
+        <!-- 비밀번호 찾기 컨텐츠 -->
+        <div id="passwordContent" class="content">
+            <div class="form-group">
+                <label for="idPassword">ID 입력</label>
+                <input type="text" id="idPassword">
+            </div>
+            <div class="form-group">
+                <label for="namePassword">이름</label>
+                <input type="text" id="namePassword">
+            </div>
+            <div class="form-group">
+                <label for="dobPassword">이메일 주소</label>
+                <input type="text" id="dobPassword">
+                <button onclick="sendVerificationCode('id')">인증번호 받기</button>
+            </div>
+            <div class="form-group">
+                <label for="emailVerificationPassword">이메일 인증번호</label>
+                <input type="text" id="emailVerificationPassword">
+                <button class="" onclick="openModal()">다음</button>
+            </div>
+
+
+        </div>
+
+
+        <!-- 비밀번호 재설정 모달-->
+        <div id="passwordResetModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2>비밀번호 재설정</h2>
+                <div class="form-group">
+                    <label for="newPassword">새로운 비밀번호</label>
+                    <input type="password" id="newPassword">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">비밀번호 확인</label>
+                    <input type="password" id="confirmPassword">
+                </div>
+                <button onclick="resetPassword()">재설정</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- 푸터 영역 -->
+    <footer>
+        <p>&copy;푸터</p>
+    </footer>
+
+    <!-- 버튼 클릭시 이벤트 추가 -->
+    <script>
+        function showContent(contentType) {
+            // active 클래스 제거 및 추가
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+
+            //  contentType에 해당하는 탭 찾아서 클래스 추가
+            document.querySelector(`.tab.${contentType}`).classList.add('active');
+            document.querySelector(`#${contentType}Content`).classList.add('active');
+        }
+        // 인증번호 받기 클릭시 alert 출력
+        function sendVerificationCode(contentType) {
+            alert(`인증번호를 이메일로 발송했습니다. (${contentType})`);
+        }
+        // 다음 버튼 클릭시 alert 출력
+        function nextStep(contentType) {
+            alert(`다음 단계로 진행합니다. (${contentType})`);
+        }
+    </script>
+
+    <!-- 모달창 -->
+    <script>
+        // 모달 열기
+        function openModal() {
+            document.getElementById('passwordResetModal').style.display = 'block';
+        }
+
+        // 모달 닫기
+        function closeModal() {
+            document.getElementById('passwordResetModal').style.display = 'none';
+        }
+
+        // 비밀번호 재설정 처리
+        function resetPassword() {
+            // 여기에 비밀번호 재설정 로직을 추가하면 됩니다.
+            alert('비밀번호가 재설정되었습니다.');
+            // 모달 닫기
+            closeModal();
+        }
+   </script>
+
+<!-- 로그인 찾기, 비밀번호 찾기 클릭시 맞게 정보 제공-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // URL에서 type 파라미터 읽기
+        const urlParams = new URLSearchParams(window.location.search);
+        const type = urlParams.get('type');
+
+        // 타입에 따라 컨텐츠를 보여줌
+        if (type === 'id') {
+            showContent('id');
+        } else if (type === 'password') {
+            showContent('password');
+        }
+    });
+
+    
+    function showContent(contentType) {
+        // active 클래스 제거 및 추가
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.content').forEach(content => content.classList.remove('active'));
+
+        //  contentType에 해당하는 탭 찾아서 클래스 추가
+        document.querySelector(`.tab.${contentType}`).classList.add('active');
+        document.querySelector(`#${contentType}Content`).classList.add('active');
+    }
+</script>
+
+</body>
+
+</html>
